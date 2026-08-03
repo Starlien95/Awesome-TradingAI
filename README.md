@@ -1,1 +1,1 @@
-# Awesome-TradingAI
+# Can AI Make Money in Crypto?
