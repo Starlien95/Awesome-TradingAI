@@ -9,6 +9,10 @@ cryptocurrency trading methods. Its installable engine is named `quant-bench`.
 It provides reproducible backtests, method adapters, versioned artifacts,
 paper/runtime safety gates, and a read-only Streamlit dashboard.
 
+## Can AI Make Money in Crypto?
+
+*Can AI Make Money in Crypto?* is an open-source benchmark and codebase for evaluating various AI for trading methods, including machine learning, reinforcement learning, LLM, and agent-based trading methods. It provides unified interfaces for historical backtesting and real-time paper trading on cryptocurrency exchanges, while continuously presenting backtest, live paper-trading results, and real-money trading results.
+
 [简体中文](README.zh-CN.md) | [Documentation](docs/index.md) | [CLI reference](docs/reference/cli.md)
 
 ## What is included
