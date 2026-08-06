@@ -1,0 +1,31 @@
+api:
+  api_key: ""
+  secret_key: ""
+  passphrase: ""
+  is_simulated: true
+model:
+  path: "models/runtime/4h/macrohft_v1_4h_hyperagent.pt"
+  subagents_dir: "models/runtime/4h/macrohft_v1_4h_subagents"
+trade:
+  mode: spot
+  coins:
+  - ETH-USDT
+strategy:
+  enforce_trade_coins_whitelist: true
+  top_k: 1
+  threshold: 0.0
+  data_limit: 400
+  stop_loss: 0.1
+  initial_capital_usdt: 10000.0
+  capital_allocation_mode: full_investment
+  rebalance_policy: passive_topk_dropout
+  risk_degree: 0.95
+  trade_amount_usdt: 1000.0
+  max_position_count: 1
+  max_dropout: 1
+  max_sell_per_cycle: 1
+  min_position_value_usdt: 2.0
+  rebalance_tolerance_usdt: 10.0
+  commission: 0.0005
+scheduler:
+  close_delay_sec: 30

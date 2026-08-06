@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: Awesome TradingAI
+message: Cite this software together with the benchmark protocol id, dataset checksum, and code commit.
+type: software
+version: 0.1.0
+authors:
+  - name: Awesome TradingAI contributors
+license: MIT
+repository-code: https://github.com/Starlien95/Awesome-TradingAI

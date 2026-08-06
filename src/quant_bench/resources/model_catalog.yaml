@@ -1,0 +1,485 @@
+schema_version: "1"
+
+models:
+  - model_id: numpy_linear_v1
+    display_name: NumPy ridge linear baseline
+    aliases: [linear_baseline, baseline]
+    backend: builtin
+    module_path: quant_bench.models.numpy_linear
+    class_name: NumpyLinearPlugin
+    family: baseline
+    verified_against: quant-bench-0.1
+    default_kwargs: {ridge: 1.0e-6}
+    supported_feature_sets: [crypto_ohlcv6_v1, crypto_alpha52_v1]
+    capabilities:
+      task_types: [regression]
+      feature_shapes: [tabular]
+      dataset_kinds: [canonical]
+      deterministic: true
+      native_artifact_formats: [npz]
+    status: stable
+
+  - model_id: qlib_lightgbm
+    display_name: Qlib LightGBM
+    aliases: [lgb, lightgbm, LGBModel]
+    backend: qlib
+    module_path: qlib.contrib.model.gbdt
+    class_name: LGBModel
+    family: tree
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: &tree_capabilities
+      task_types: [regression, ranking]
+      feature_shapes: [tabular]
+      dataset_kinds: [DatasetH]
+      deterministic: true
+      native_artifact_formats: [lightgbm_text]
+      optional_extra: qlib,lgbm
+    status: stable
+
+  - model_id: qlib_highfreq_lightgbm
+    display_name: Qlib high-frequency LightGBM
+    aliases: [hflgb, HFLGBModel]
+    backend: qlib
+    module_path: qlib.contrib.model.highfreq_gdbt_model
+    class_name: HFLGBModel
+    family: tree
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities:
+      <<: *tree_capabilities
+      required_metadata: [high_frequency_targets]
+    status: requires_metadata
+    notes: Requires a high-frequency target layout compatible with HFLGBModel.
+
+  - model_id: qlib_xgboost
+    display_name: Qlib XGBoost
+    aliases: [xgb, xgboost, xgboost_btc, XGBModel]
+    backend: qlib
+    module_path: qlib.contrib.model.xgboost
+    class_name: XGBModel
+    family: tree
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities:
+      <<: *tree_capabilities
+      native_artifact_formats: [xgboost_ubjson]
+      optional_extra: qlib,xgboost
+    status: stable
+
+  - model_id: qlib_catboost
+    display_name: Qlib CatBoost
+    aliases: [catboost, CatBoostModel]
+    backend: qlib
+    module_path: qlib.contrib.model.catboost_model
+    class_name: CatBoostModel
+    family: tree
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities:
+      <<: *tree_capabilities
+      native_artifact_formats: [catboost_binary]
+      optional_extra: qlib,catboost
+    status: stable
+
+  - model_id: qlib_double_ensemble
+    display_name: Qlib DoubleEnsemble
+    aliases: [doubleensemble, DEnsembleModel]
+    backend: qlib
+    module_path: qlib.contrib.model.double_ensemble
+    class_name: DEnsembleModel
+    family: ensemble
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities:
+      <<: *tree_capabilities
+      optional_extra: qlib,lgbm
+    status: stable
+
+  - model_id: qlib_linear
+    display_name: Qlib linear model
+    aliases: [linear, LinearModel]
+    backend: qlib
+    module_path: qlib.contrib.model.linear
+    class_name: LinearModel
+    family: linear
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities:
+      task_types: [regression]
+      feature_shapes: [tabular]
+      dataset_kinds: [DatasetH]
+      deterministic: true
+      native_artifact_formats: [trusted_local_checkpoint]
+      optional_extra: qlib
+    status: stable
+
+  - model_id: qlib_mlp
+    display_name: Qlib PyTorch MLP
+    aliases: [mlp, DNNModelPytorch]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_nn
+    class_name: DNNModelPytorch
+    family: neural
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: &torch_tabular_capabilities
+      task_types: [regression]
+      feature_shapes: [tabular]
+      dataset_kinds: [DatasetH]
+      deterministic: false
+      native_artifact_formats: [state_dict]
+      optional_extra: qlib,torch
+    status: stable
+
+  - model_id: qlib_adarnn
+    display_name: Qlib AdaRNN
+    aliases: [adarnn, adarnn_btc, ADARNN, AdaRNN, CustomADARNN]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_adarnn
+    class_name: ADARNN
+    family: neural
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: &torch_sequence_capabilities
+      task_types: [regression]
+      feature_shapes: [sequence, sequence_flat]
+      dataset_kinds: [DatasetH, TSDatasetH]
+      deterministic: false
+      native_artifact_formats: [state_dict]
+      optional_extra: qlib,torch
+    status: experimental
+
+  - model_id: qlib_add
+    display_name: Qlib ADD
+    aliases: [add, ADD]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_add
+    class_name: ADD
+    family: neural
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_sequence_capabilities
+    status: experimental
+
+  - model_id: qlib_alstm
+    display_name: Qlib ALSTM
+    aliases: [alstm, ALSTM]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_alstm
+    class_name: ALSTM
+    family: neural
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_sequence_capabilities
+    status: stable
+
+  - model_id: qlib_alstm_ts
+    display_name: Qlib ALSTM for TSDatasetH
+    aliases: [alstm_ts]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_alstm_ts
+    class_name: ALSTM
+    family: neural
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_sequence_capabilities
+    status: stable
+
+  - model_id: qlib_gats
+    display_name: Qlib GATs
+    aliases: [gats, GATs]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_gats
+    class_name: GATs
+    family: graph
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: &torch_cross_section_capabilities
+      task_types: [regression, ranking]
+      feature_shapes: [sequence, cross_section]
+      dataset_kinds: [DatasetH]
+      deterministic: false
+      native_artifact_formats: [state_dict]
+      optional_extra: qlib,torch
+    status: stable
+
+  - model_id: qlib_gats_ts
+    display_name: Qlib GATs for TSDatasetH
+    aliases: [gats_ts]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_gats_ts
+    class_name: GATs
+    family: graph
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities:
+      <<: *torch_cross_section_capabilities
+      dataset_kinds: [TSDatasetH]
+    status: stable
+
+  - model_id: qlib_general_ptnn
+    display_name: Qlib configurable PyTorch network
+    aliases: [generalptnn, GeneralPTNN]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_general_nn
+    class_name: GeneralPTNN
+    family: neural
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_sequence_capabilities
+    status: stable
+
+  - model_id: qlib_gru
+    display_name: Qlib GRU
+    aliases: [gru, GRU]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_gru
+    class_name: GRU
+    family: neural
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_sequence_capabilities
+    status: stable
+
+  - model_id: qlib_gru_ts
+    display_name: Qlib GRU for TSDatasetH
+    aliases: [gru_ts]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_gru_ts
+    class_name: GRU
+    family: neural
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_sequence_capabilities
+    status: stable
+
+  - model_id: qlib_hist
+    display_name: Qlib HIST
+    aliases: [hist, HIST]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_hist
+    class_name: HIST
+    family: graph
+    verified_against: pyqlib-0.9.7
+    default_kwargs:
+      stock2concept: ./data/metadata/stock2concept.npy
+      stock_index: ./data/metadata/stock_index.npy
+    capabilities:
+      <<: *torch_cross_section_capabilities
+      required_metadata: [stock2concept, stock_index]
+    status: requires_metadata
+
+  - model_id: qlib_igmtf
+    display_name: Qlib IGMTF
+    aliases: [igmtf, IGMTF]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_igmtf
+    class_name: IGMTF
+    family: graph
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_cross_section_capabilities
+    status: experimental
+
+  - model_id: qlib_krnn
+    display_name: Qlib KRNN
+    aliases: [krnn, KRNN]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_krnn
+    class_name: KRNN
+    family: neural
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_sequence_capabilities
+    status: stable
+
+  - model_id: qlib_localformer
+    display_name: Qlib Localformer
+    aliases: [localformer, Localformer, LocalformerModel]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_localformer
+    class_name: LocalformerModel
+    family: transformer
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_sequence_capabilities
+    status: stable
+
+  - model_id: qlib_localformer_ts
+    display_name: Qlib Localformer for TSDatasetH
+    aliases: [localformer_ts]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_localformer_ts
+    class_name: LocalformerModel
+    family: transformer
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_sequence_capabilities
+    status: stable
+
+  - model_id: qlib_lstm
+    display_name: Qlib LSTM
+    aliases: [lstm, lstm_btc, LSTM]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_lstm
+    class_name: LSTM
+    family: neural
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_sequence_capabilities
+    status: stable
+
+  - model_id: qlib_lstm_ts
+    display_name: Qlib LSTM for TSDatasetH
+    aliases: [lstm_ts]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_lstm_ts
+    class_name: LSTM
+    family: neural
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_sequence_capabilities
+    status: stable
+
+  - model_id: qlib_sandwich
+    display_name: Qlib Sandwich
+    aliases: [sandwich, Sandwich]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_sandwich
+    class_name: Sandwich
+    family: neural
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_sequence_capabilities
+    status: experimental
+
+  - model_id: qlib_sfm
+    display_name: Qlib SFM
+    aliases: [sfm, SFM]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_sfm
+    class_name: SFM
+    family: neural
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_sequence_capabilities
+    status: stable
+
+  - model_id: qlib_tabnet
+    display_name: Qlib TabNet
+    aliases: [tabnet, TabNet, TabnetModel]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_tabnet
+    class_name: TabnetModel
+    family: neural
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_tabular_capabilities
+    status: stable
+
+  - model_id: qlib_tcn
+    display_name: Qlib TCN
+    aliases: [tcn, TCN]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_tcn
+    class_name: TCN
+    family: convolutional
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_sequence_capabilities
+    status: stable
+
+  - model_id: qlib_tcn_ts
+    display_name: Qlib TCN for TSDatasetH
+    aliases: [tcn_ts]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_tcn_ts
+    class_name: TCN
+    family: convolutional
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_sequence_capabilities
+    status: stable
+
+  - model_id: qlib_tcts
+    display_name: Qlib TCTS
+    aliases: [tcts, TCTS]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_tcts
+    class_name: TCTS
+    family: neural
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_sequence_capabilities
+    status: experimental
+
+  - model_id: qlib_tra
+    display_name: Qlib TRA
+    aliases: [tra, TRAModel]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_tra
+    class_name: TRAModel
+    family: routing
+    verified_against: pyqlib-0.9.7
+    default_kwargs:
+      model_config:
+        input_size: 6
+        hidden_size: 64
+        num_layers: 2
+        rnn_arch: GRU
+        use_attn: true
+        dropout: 0.0
+      tra_config:
+        num_states: 1
+        hidden_size: 8
+        rnn_arch: GRU
+        num_layers: 1
+        dropout: 0.0
+        tau: 1.0
+        src_info: LR_TPE
+    capabilities:
+      task_types: [regression, routing]
+      feature_shapes: [multi_task_sequence]
+      dataset_kinds: [MTSDatasetH]
+      deterministic: false
+      native_artifact_formats: [state_dict]
+      optional_extra: qlib,torch
+    status: stable
+
+  - model_id: qlib_transformer
+    display_name: Qlib Transformer
+    aliases: [transformer, TransformerModel]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_transformer
+    class_name: TransformerModel
+    family: transformer
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_sequence_capabilities
+    status: stable
+
+  - model_id: qlib_transformer_ts
+    display_name: Qlib Transformer for TSDatasetH
+    aliases: [transformer_ts]
+    backend: qlib
+    module_path: qlib.contrib.model.pytorch_transformer_ts
+    class_name: TransformerModel
+    family: transformer
+    verified_against: pyqlib-0.9.7
+    default_kwargs: {}
+    capabilities: *torch_sequence_capabilities
+    status: stable
+
+  - model_id: qlib_tft
+    display_name: Local Qlib Temporal Fusion Transformer
+    aliases: [tft, TFTModel]
+    backend: custom_qlib
+    module_path: quant_bench.integrations.qlib.models.tft
+    class_name: TFTModel
+    family: transformer
+    verified_against: local-opensource-1
+    default_kwargs: {}
+    capabilities: *torch_sequence_capabilities
+    status: experimental
+    notes: Local implementation. Release remains blocked until provenance and license review are complete.

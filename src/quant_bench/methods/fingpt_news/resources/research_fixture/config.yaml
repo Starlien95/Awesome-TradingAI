@@ -1,0 +1,51 @@
+schema_version: 1
+strategy_id: FinGPTSentimentResearchSmokeV1
+symbols:
+  - BTC-USDT
+  - ETH-USDT
+inputs:
+  prices: data/prices.csv
+  validation_sentiment: data/validation_sentiment.csv
+  test_sentiment: data/test_sentiment.csv
+  price_date_column: date
+  price_symbol_column: symbol
+  price_close_column: close
+validation:
+  start: '2024-01-01'
+  end: '2024-01-07'
+test:
+  start: '2025-01-01'
+  end: '2025-01-07'
+aggregation:
+  asset_top_n: [0, 2]
+  market_top_n: [0]
+  min_abs_score: [0.0]
+  score_power: [0.0]
+signals:
+  variants: [asset_only, hybrid_adaptive]
+  thresholds: [0.05, 0.20]
+  fixed_asset_alpha: [0.70]
+  adaptive_k: [2.0]
+  adaptive_min_alpha: [0.50]
+  adaptive_max_alpha: [0.90]
+  market_beta: {}
+  conflict_policy: none
+  conflict_threshold: 0.08
+backtest:
+  initial_capital_usdt: 2000.0
+  per_symbol_capital_usdt: 1000.0
+  fee_bps: 10.0
+  slippage_bps: 5.0
+  signal_lag_days: 1
+  annualization: 365
+  calendar_policy: intersection
+selection:
+  objective: sharpe
+  max_trials: 100
+  min_trades: 1
+  min_signal_days: 1
+  min_classified_news: 1
+  enable_per_symbol_thresholds: true
+model_id: synthetic-label-logprob
+adapter_id: synthetic-fixture
+dataset_id: quant-bench-fingpt-smoke-v1

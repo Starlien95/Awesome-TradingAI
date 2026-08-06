@@ -1,0 +1,56 @@
+site_name: Awesome TradingAI
+site_description: Reproducible cryptocurrency AI trading benchmark and local analysis toolkit
+repo_url: https://github.com/Starlien95/Awesome-TradingAI
+edit_uri: edit/main/docs/
+docs_dir: docs
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - Tutorials:
+      - Offline quickstart: tutorials/quickstart.md
+      - First Qlib run: tutorials/qlib-first-run.md
+      - FinMem and InvestorBench: methods/finmem.md
+      - FinMem 中文指南: methods/finmem.zh-CN.md
+      - FinGPT news research: methods/fingpt-news.md
+      - FinGPT 新闻情绪: methods/fingpt-news.zh-CN.md
+  - How-to:
+      - Unified Method interface: how-to/unified-methods.md
+      - Unified trading interface: how-to/unified-trading-interface.md
+      - Prepare data: how-to/data.md
+      - Add a model: how-to/add-model.md
+      - Results: how-to/results.md
+      - Runtime modes: how-to/runtime.md
+  - Concepts:
+      - Reproducibility: concepts/reproducibility.md
+      - Security boundaries: concepts/security-boundaries.md
+      - Architecture: ARCHITECTURE.md
+      - Local analytics dashboard: design/LOCAL_ANALYTICS_DASHBOARD.md
+      - Method capability matrix: METHOD_CAPABILITY_MATRIX.md
+      - Data contract: DATA_CONTRACT.md
+      - Runtime architecture: runtime/ARCHITECTURE.md
+      - Trading flow: runtime/TRADING_FLOW.md
+      - FinGPT runtime design: runtime/LIVE_FINGPT_NEWS_DESIGN.md
+  - Reference:
+      - CLI: reference/cli.md
+      - Python API: reference/python-api.md
+      - Configuration: reference/config.md
+      - Configuration schema: CONFIGURATION.md
+      - Artifacts: reference/artifacts.md
+      - Models: MODEL_SUPPORT.md
+      - Workflow defaults: WORKFLOW_DEFAULTS.md
+      - Runtime CSV: runtime/CSV_SCHEMA.md
+      - Runtime framework: runtime/QUANT_TRADE_FRAMEWORK.md
+      - Network access: runtime/NETWORK_ACCESS.md
+      - FinMem local data: data/FINMEM_INVESTORBENCH_DATA.md
+      - FinMem migration: methods/finmem-migration.md
+      - FinMem security: methods/finmem-security.md
+  - Maintainers:
+      - Migration guide: MIGRATION.md
+      - Open-source refactor design: design/OPEN_SOURCE_REFACTOR.md
+      - Awesome TradingAI migration design: design/AWESOME_TRADING_AI_MIGRATION_DESIGN.md
+      - Repository layout: REPOSITORY_LAYOUT.md
+      - License policy: legal/LICENSE_POLICY.md
+      - Provenance register: legal/PROVENANCE.md
+      - Dependency licenses: legal/DEPENDENCY_LICENSES.md
+  - Troubleshooting: troubleshooting.md

@@ -1,0 +1,4 @@
+* text=auto eol=lf
+
+*.pkl text eol=lf
+local_data/finmem/investorbench/*.json text eol=lf -diff

@@ -1,0 +1,11 @@
+symbol,signal_variant,signal_threshold,agg_asset_top_n,agg_market_top_n,agg_min_abs_article_score,agg_score_power,signal_adaptive_k,signal_min_alpha,signal_max_alpha,signal_conflict_policy,signal_conflict_threshold,signal_alpha
+ADA-USDT,hybrid_adaptive,0.08,12,24,0.0,0.0,6.0,0.50,0.90,none,0.08,0.70
+BTC-USDT,hybrid_adaptive,0.08,12,24,0.0,0.0,6.0,0.50,0.90,none,0.08,0.70
+DOGE-USDT,hybrid_adaptive,0.08,12,24,0.0,0.0,6.0,0.50,0.90,none,0.08,0.70
+ETH-USDT,hybrid_adaptive,0.08,12,24,0.0,0.0,6.0,0.50,0.90,none,0.08,0.70
+HBAR-USDT,hybrid_adaptive,0.08,12,24,0.0,0.0,6.0,0.50,0.90,none,0.08,0.70
+LINK-USDT,hybrid_adaptive,0.08,12,24,0.0,0.0,6.0,0.50,0.90,none,0.08,0.70
+LTC-USDT,hybrid_adaptive,0.08,12,24,0.0,0.0,6.0,0.50,0.90,none,0.08,0.70
+OKB-USDT,hybrid_adaptive,0.08,12,24,0.0,0.0,6.0,0.50,0.90,none,0.08,0.70
+TRX-USDT,hybrid_adaptive,0.08,12,24,0.0,0.0,6.0,0.50,0.90,none,0.08,0.70
+XRP-USDT,hybrid_adaptive,0.08,12,24,0.0,0.0,6.0,0.50,0.90,none,0.08,0.70

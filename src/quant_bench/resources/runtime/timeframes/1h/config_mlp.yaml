@@ -1,0 +1,43 @@
+api:
+  api_key: ""
+  secret_key: ""
+  passphrase: ""
+  is_simulated: true
+
+model:
+  path: "models/runtime/1h/mlp_1h_model.pth"
+  hidden_dim: 32
+  dropout: 0.05
+
+trade:
+  mode: "spot"
+  coins:
+    - "ADA-USDT"
+    - "BTC-USDT"
+    - "DOGE-USDT"
+    - "ETH-USDT"
+    - "HBAR-USDT"
+    - "LINK-USDT"
+    - "LTC-USDT"
+    - "OKB-USDT"
+    - "TRX-USDT"
+    - "XRP-USDT"
+
+strategy:
+  top_k: 3
+  threshold: 0.0
+  data_limit: 300
+  stop_loss: 0.10
+  initial_capital_usdt: 10000.0
+  capital_allocation_mode: "full_investment"
+  rebalance_policy: passive_topk_dropout
+  risk_degree: 0.95
+  trade_amount_usdt: 1000.0
+  max_position_count: 3
+  max_dropout: 1
+  max_sell_per_cycle: 1
+  min_position_value_usdt: 2.0
+  rebalance_tolerance_usdt: 10.0
+
+scheduler:
+  close_delay_sec: 8

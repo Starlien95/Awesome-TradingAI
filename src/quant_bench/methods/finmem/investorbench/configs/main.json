@@ -1,0 +1,97 @@
+{
+  "chat_config": {
+    "chat_model": "Qwen/Qwen2.5-7B-Instruct",
+    "lora": false,
+    "chat_model_type": "instruction",
+    "chat_model_inference_engine": "vllm",
+    "chat_system_message": "You are a financial trading assistant. Respond only with valid JSON and use no information after the current simulation date.",
+    "chat_parameters": {"temperature": 0.2},
+    "chat_max_new_token": 2048,
+    "chat_request_timeout": 300,
+    "chat_vllm_endpoint": "http://127.0.0.1:8000"
+  },
+  "emb_config": {
+    "emb_model_name": "text-embedding-3-small",
+    "request_endpoint": "https://api.openai.com/v1/embeddings",
+    "emb_size": 1536,
+    "embedding_timeout": 120,
+    "embedding_batch_size": 10,
+    "embedding_max_retries": 5
+  },
+  "env_config": {
+    "trading_symbols": ["BTC"],
+    "warmup_start_time": "2023-01-19",
+    "warmup_end_time": "2023-04-04",
+    "test_start_time": "2023-04-05",
+    "test_end_time": "2023-11-05",
+    "momentum_window_size": 3,
+    "env_data_path": {"BTC": "data/btc.json"}
+  },
+  "portfolio_config": {
+    "trading_symbols": ["BTC"],
+    "type": "single-asset",
+    "cash": null,
+    "look_back_window_size": 3
+  },
+  "agent_config": {
+    "agent_name": "finmem_btc_example",
+    "trading_symbols": ["BTC"],
+    "character_string": {
+      "BTC": "Manage a benchmark portfolio for BTC. Use only prices, news, momentum, and memories available on the current simulation date. Explain uncertainty and never assume future information."
+    },
+    "top_k": 5,
+    "memory_db_config": {
+      "memory_db_endpoint": "http://127.0.0.1:6333",
+      "memory_importance_upper_bound": 100.0,
+      "memory_importance_score_update_step": 18.0,
+      "trading_symbols": ["BTC"],
+      "short": {
+        "db_name": "short",
+        "importance_init_val": 50.0,
+        "decay_recency_factor": 3.0,
+        "decay_importance_factor": 0.92,
+        "clean_up_recency_threshold": 0.05,
+        "clean_up_importance_threshold": 5.0,
+        "jump_upper_threshold": 55.0
+      },
+      "mid": {
+        "db_name": "mid",
+        "importance_init_val": 60.0,
+        "decay_recency_factor": 90.0,
+        "decay_importance_factor": 0.96,
+        "clean_up_recency_threshold": 0.05,
+        "clean_up_importance_threshold": 5.0,
+        "jump_lower_threshold": 55.0,
+        "jump_upper_threshold": 85.0
+      },
+      "long": {
+        "db_name": "long",
+        "importance_init_val": 90.0,
+        "decay_recency_factor": 365.0,
+        "decay_importance_factor": 0.96,
+        "clean_up_recency_threshold": 0.05,
+        "clean_up_importance_threshold": 5.0,
+        "jump_lower_threshold": 85.0
+      },
+      "reflection": {
+        "db_name": "reflection",
+        "importance_init_val": 80.0,
+        "decay_recency_factor": 365.0,
+        "decay_importance_factor": 0.98,
+        "clean_up_recency_threshold": 0.05,
+        "clean_up_importance_threshold": 5.0,
+        "similarity_threshold": 0.95
+      }
+    }
+  },
+  "meta_config": {
+    "run_name": "finmem_btc_example",
+    "momentum_window_size": 3,
+    "warmup_checkpoint_save_path": "results/example/warmup_checkpoint",
+    "warmup_output_save_path": "results/example/warmup_output",
+    "test_checkpoint_save_path": "results/example/test_checkpoint",
+    "test_output_save_path": "results/example/test_output",
+    "result_save_path": "results/example/final_result",
+    "log_save_path": "results/example/logs"
+  }
+}

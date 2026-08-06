@@ -1,0 +1,83 @@
+schema_version: "1"
+recipe_id: crypto_smoke_v1
+
+experiment:
+  name: crypto-smoke
+  seed: 42
+  workspace: null
+
+data:
+  dataset_id: synthetic_crypto_ohlcv_1h_v1
+  source: synthetic_fixture
+  path: fixture://crypto_ohlcv_smoke.csv
+  license: synthetic
+  checksum: null
+
+universe:
+  universe_id: smoke_btc_eth_v1
+  symbols: [BTC-USDT, ETH-USDT]
+
+frequency:
+  id: 1h
+  pandas_rule: 1h
+  annualization: 8760
+
+features:
+  feature_set_id: crypto_ohlcv6_v1
+  plugin: crypto_ohlcv6_v1
+  version: "1"
+  parameters: {}
+
+label:
+  label_id: forward_return_1bar_v1
+  task_type: regression
+  horizon_bars: 1
+  formula: Ref($close, -1) / $close - 1
+  scale: 1.0
+
+model:
+  model_id: numpy_linear_v1
+  plugin: numpy_linear_v1
+  backend: builtin
+  module_path: null
+  class_name: null
+  parameters:
+    ridge: 1.0e-6
+
+protocol:
+  protocol_id: crypto_smoke_v1
+  tier: smoke
+  split:
+    train:
+      start: 2024-01-01T01:00:00Z
+      end: 2024-01-01T09:00:00Z
+    valid:
+      start: 2024-01-01T10:00:00Z
+      end: 2024-01-01T13:00:00Z
+    test:
+      start: 2024-01-01T14:00:00Z
+      end: 2024-01-01T18:00:00Z
+    purge_bars: 0
+    embargo_bars: 0
+  strategy:
+    strategy_id: threshold_topk_dropout_v1
+    top_k: 1
+    threshold: 0.0
+    max_dropout: 1
+    risk_degree: 0.95
+    rebalance_policy: passive_topk_dropout
+  costs:
+    open_cost: 0.001
+    close_cost: 0.001
+    slippage_bps: 0.0
+    min_cost: 0.0
+  initial_cash: 100000.0
+  seeds: [42]
+
+tracker:
+  backend: local
+  uri: null
+
+runtime:
+  mode: research
+  allow_network: false

@@ -1,0 +1,123 @@
+runtime:
+  run_dir: runs/fingpt_news/FinGPTSentimentSFT_1d
+  dry_run: true
+  dry_run_prices:
+    ADA-USDT: 0.75
+    BTC-USDT: 68000.0
+    DOGE-USDT: 0.16
+    ETH-USDT: 3600.0
+    HBAR-USDT: 0.09
+    LINK-USDT: 18.0
+    LTC-USDT: 85.0
+    OKB-USDT: 58.0
+    TRX-USDT: 0.12
+    XRP-USDT: 0.62
+  sample_news:
+  - date: '2026-05-28 12:00:00'
+    source: DryRun
+    subject: bitcoin
+    title: Bitcoin and Ethereum rise as crypto market sentiment improves
+    text: Bitcoin and Ethereum gained as traders reacted to stronger institutional
+      demand for digital assets.
+    url: dryrun://btc-eth-positive
+    published_on: 1780000000
+  - date: '2026-05-28 13:00:00'
+    source: DryRun
+    subject: regulation
+    title: Crypto market faces regulatory uncertainty after new exchange lawsuit
+    text: A lawsuit against a major exchange weighed on broader cryptocurrency risk
+      appetite.
+    url: dryrun://market-negative
+    published_on: 1780003600
+  - date: '2026-05-28 14:00:00'
+    source: DryRun
+    subject: doge
+    title: Dogecoin developers announce network upgrade
+    text: Dogecoin developers said the upcoming network upgrade could improve reliability
+      and lower transaction friction.
+    url: dryrun://doge-positive
+    published_on: 1780007200
+strategy:
+  strategy_id: FinGPTSentimentSFT_1d
+  per_coin_params_path: configs/per_coin_params_default.csv
+model:
+  base_model_id: NousResearch/Llama-2-13b-hf
+  adapter_id: models/fingpt_news/stage2_news_focused
+  max_length: 512
+  batch_size: 1
+model_schedule:
+  load_start_local: '23:55'
+  unload_end_local: '01:00'
+  allow_model_outside_window: false
+  keep_loaded_during_window: false
+  deadline_margin_sec: 5.0
+model_execution:
+  isolated_process: true
+  subprocess_timeout_grace_sec: 60.0
+logging:
+  level: INFO
+  heartbeat_interval_sec: 300
+  progress_every_batches: 10
+api:
+  okx_flag: '1'
+  is_simulated: true
+  okx_api_key_env: OKX_API_KEY_SIMU
+  okx_secret_key_env: OKX_SECRET_KEY_SIMU
+  okx_passphrase_env: OKX_PASSPHRASE
+  okx_api_key: ""
+  okx_secret_key: ""
+  okx_passphrase: ""
+trade:
+  mode: paper_spot
+  coins:
+  - ADA-USDT
+  - BTC-USDT
+  - DOGE-USDT
+  - ETH-USDT
+  - HBAR-USDT
+  - LINK-USDT
+  - LTC-USDT
+  - OKB-USDT
+  - TRX-USDT
+  - XRP-USDT
+  initial_capital_usdt: 10000.0
+  per_coin_capital_usdt: 1000.0
+  fee_bps: 10.0
+  slippage_bps: 5.0
+  min_position_value_usdt: 2.0
+  order_settle_delay_sec: 1.5
+  order_cash_buffer_bps: 15.0
+  reconcile_account_positions: false
+  require_full_cash: true
+  mark_done_on_trade_fail: false
+  signal_news_window: previous_calendar_day
+scheduler:
+  news_fetch_interval_sec: 3600
+  model_infer_interval_sec: 300
+  trade_time_local: 00:05
+  trade_catchup_cutoff_local: 01:00
+  timezone: Asia/Shanghai
+  startup_catchup_hours: 48
+news:
+  provider: ccdata
+  language: EN
+  ccdata_api_key: ""
+  ccdata_api_key_env: CCDATA_API_KEY
+  pages_per_fetch: 5
+  request_timeout_sec: 15
+  request_sleep_sec: 1.0
+  max_retries: 3
+  startup_catchup_pages: 60
+  trade_catchup_pages: 30
+  candidate_retention_days: 7
+  news_text_chars: 600
+  max_source_news_per_day: 3
+  asset_relevance_weight:
+    subject: 1.3
+    title_keyword: 1.1
+    text_keyword: 0.8
+  market_relevance_weight:
+    market_subject: 1.0
+    market_title: 0.9
+    market_text: 0.7
+    major_asset: 0.5

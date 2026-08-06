@@ -1,0 +1,101 @@
+template_version: quant-bench-public-v1
+experiment_name: quant-bench-qlib_sandwich-15m
+qlib_init:
+  provider_uri: ./qlib_data/15m
+  region: cn
+market: all
+benchmark: BTC-USDT
+model_id: qlib_sandwich
+feature_set_id: crypto_alpha52_v1
+task:
+  model:
+    class: Sandwich
+    module_path: qlib.contrib.model.pytorch_sandwich
+    kwargs:
+      fea_dim: 52
+      seed: 42
+  dataset:
+    class: DatasetH
+    module_path: qlib.data.dataset
+    kwargs:
+      handler:
+        class: CryptoAlpha52Handler
+        module_path: quant_bench.integrations.qlib.handlers
+        kwargs:
+          start_time: '2021-01-01'
+          end_time: '2025-12-31'
+          fit_start_time: '2021-01-01'
+          fit_end_time: '2023-12-31'
+          freq: 15min
+          instruments: all
+          infer_processors:
+          - class: RobustZScoreNorm
+            module_path: qlib.data.dataset.processor
+            kwargs:
+              fields_group: feature
+              clip_outlier: true
+              fit_start_time: '2021-01-01'
+              fit_end_time: '2023-12-31'
+          - class: Fillna
+            module_path: qlib.data.dataset.processor
+            kwargs:
+              fields_group: feature
+              fill_value: 0
+          learn_processors:
+          - class: DropnaLabel
+            module_path: qlib.data.dataset.processor
+          label:
+          - Ref($close, -1) / $close - 1
+      segments:
+        train:
+        - '2021-01-01'
+        - '2023-12-31'
+        valid:
+        - '2024-01-01'
+        - '2024-12-31'
+        test:
+        - '2025-01-01'
+        - '2025-12-31'
+  record:
+  - class: SignalRecord
+    module_path: qlib.workflow.record_temp
+    kwargs:
+      model: <MODEL>
+      dataset: <DATASET>
+  - class: SigAnaRecord
+    module_path: qlib.workflow.record_temp
+    kwargs:
+      ana_long_short: false
+      ann_scaler: 35040
+  - class: CryptoPortAnaRecord
+    module_path: quant_bench.integrations.qlib.records
+    kwargs:
+      config:
+        strategy:
+          class: ThresholdTopkDropoutStrategy
+          module_path: quant_bench.integrations.qlib.strategy
+          kwargs:
+            signal: <PRED>
+            topk: 5
+            min_score: 0.0
+            max_dropout: 1
+            enable_short: false
+        executor:
+          class: SimulatorExecutor
+          module_path: qlib.backtest.executor
+          kwargs:
+            time_per_step: 15min
+            generate_portfolio_metrics: true
+        backtest:
+          start_time: '2025-01-01'
+          end_time: '2025-12-31'
+          account: 100000
+          benchmark: BTC-USDT
+          exchange_kwargs:
+            freq: 15min
+            limit_threshold: null
+            deal_price: open
+            open_cost: 0.001
+            close_cost: 0.001
+            min_cost: 0
+            trade_unit: null

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "distribution": "local-only",
+  "note": "Checksums identify 15 files restored from the former source repository's origin/opensource branch. The files are excluded from the Python package and public release until source-specific redistribution rights are documented.",
+  "files": {
+    "ada": {"sha256": "0cdda102b2945c29cde01e7c9664f6330df4e19234f1cc00db0ee99dd765cc6b", "size_bytes": 6976877, "start_date": "2020-01-30", "end_date": "2026-01-06"},
+    "btc": {"sha256": "cd01ccfdb9ccac2bd69eda641852ff8eec27addd03f329b58190224965aa5d85", "size_bytes": 8217812, "start_date": "2020-01-01", "end_date": "2026-05-22"},
+    "doge": {"sha256": "189338f8b6d389171f7b8dc264ac00deb3838e41ad0762cd9f0159208df43605", "size_bytes": 5659463, "start_date": "2020-01-30", "end_date": "2026-01-06"},
+    "eth": {"sha256": "292bb883f8d64acf836ecaad0ec5fc3de6e10dd8a96d0e9afa6a210f62833ad3", "size_bytes": 7686272, "start_date": "2020-01-01", "end_date": "2026-01-01"},
+    "hbar": {"sha256": "fc02ff49aa235348e854988b09a318cd6a0f490cf3c286dc22ea3efb8c2de996", "size_bytes": 3471626, "start_date": "2020-01-30", "end_date": "2026-01-06"},
+    "hon": {"sha256": "ff90bea4e8ff35cb2752e24ad74d321eb94f06e72953acaaa48e02595e12850b", "size_bytes": 417194, "start_date": "2020-03-12", "end_date": "2021-05-06"},
+    "jnj": {"sha256": "ba557598af05ed9947a710cb328462e279d59be19b18907339805d503c45ca8c", "size_bytes": 823894, "start_date": "2020-03-12", "end_date": "2021-05-06"},
+    "link": {"sha256": "65518625b7af29bad02c5b63e7eec13762bcd84c5b622c63c8044b6b1cf3a5a4", "size_bytes": 3892623, "start_date": "2020-01-30", "end_date": "2026-01-06"},
+    "ltc": {"sha256": "582345771d54eea905808bb2201f33cb546f47e4b9789aaffaed31ce94923285", "size_bytes": 3712678, "start_date": "2020-01-30", "end_date": "2026-01-06"},
+    "msft": {"sha256": "f3af207052f2580ce5d03079a1ba17c4314a715ad55b365dc45e954dd15c5509", "size_bytes": 3276783, "start_date": "2020-03-12", "end_date": "2021-05-06"},
+    "nflx": {"sha256": "700963e236c7ecc4816988328ebf8e9b6e28dda171967e2531ca937b1415ca83", "size_bytes": 913100, "start_date": "2020-03-12", "end_date": "2021-05-06"},
+    "okb": {"sha256": "1739f026787922b237315a3a6156a739bb9e0eb90fc7b0613000193c3d55f813", "size_bytes": 3512929, "start_date": "2020-01-01", "end_date": "2026-01-06"},
+    "trx": {"sha256": "0eee317b1d4d71b42756915e34c953a7853d7ebb07e66a9b200130a1c9f31c25", "size_bytes": 3495107, "start_date": "2020-01-30", "end_date": "2026-01-06"},
+    "uvv": {"sha256": "2a09c02d67d7c69150f130306a1b924656a32ba85959a70017933a75472505d4", "size_bytes": 604569, "start_date": "2020-03-12", "end_date": "2021-05-06"},
+    "xrp": {"sha256": "626ff85b25f1a7364da1a421b60b2e32bd44a3a73a6755003a487f7739614f9e", "size_bytes": 4046615, "start_date": "2020-01-30", "end_date": "2026-01-06"}
+  }
+}

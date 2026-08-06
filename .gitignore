@@ -1,0 +1,46 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+build/
+dist/
+site/
+*.egg-info/
+
+# Local benchmark workspaces and generated artifacts
+qb-workspace/
+runs/
+datasets/
+caches/
+studies/
+reports/
+mlruns/
+local_data/
+methods/finmem/live_data/
+methods/finmem/live_decision/
+methods/finmem/live_cycle_records/
+methods/finmem/live_loop_records/
+methods/finmem/timeframes/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+local-config/
+
+# Large or unsafe model artifacts
+*.pkl
+*.pickle
+*.pt
+*.pth
+*.safetensors
+*_conversion_manifest.json

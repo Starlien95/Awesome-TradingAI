@@ -1,0 +1,16 @@
+news_id,date,datetime,symbol,bucket,source,article_score,relevance_weight,model_label,true_label
+v-btc-1,2024-01-01,2024-01-01 10:00:00,BTC-USDT,asset,Synthetic,0.60,1.0,positive,positive
+v-eth-1,2024-01-01,2024-01-01 11:00:00,ETH-USDT,asset,Synthetic,-0.30,1.0,negative,neutral
+v-mkt-1,2024-01-01,2024-01-01 12:00:00,MARKET,market,Synthetic,0.10,1.0,neutral,neutral
+v-btc-2,2024-01-02,2024-01-02 10:00:00,BTC-USDT,asset,Synthetic,0.35,1.0,positive,positive
+v-eth-2,2024-01-02,2024-01-02 11:00:00,ETH-USDT,asset,Synthetic,0.45,1.0,positive,positive
+v-mkt-2,2024-01-02,2024-01-02 12:00:00,MARKET,market,Synthetic,0.20,1.0,positive,positive
+v-btc-3,2024-01-03,2024-01-03 10:00:00,BTC-USDT,asset,Synthetic,-0.55,1.0,negative,negative
+v-eth-3,2024-01-03,2024-01-03 11:00:00,ETH-USDT,asset,Synthetic,0.25,1.0,positive,positive
+v-mkt-3,2024-01-03,2024-01-03 12:00:00,MARKET,market,Synthetic,-0.15,1.0,negative,negative
+v-btc-4,2024-01-04,2024-01-04 10:00:00,BTC-USDT,asset,Synthetic,0.05,1.0,neutral,neutral
+v-eth-4,2024-01-04,2024-01-04 11:00:00,ETH-USDT,asset,Synthetic,-0.50,1.0,negative,negative
+v-mkt-4,2024-01-04,2024-01-04 12:00:00,MARKET,market,Synthetic,-0.10,1.0,neutral,neutral
+v-btc-5,2024-01-05,2024-01-05 10:00:00,BTC-USDT,asset,Synthetic,0.40,1.0,positive,positive
+v-eth-5,2024-01-05,2024-01-05 11:00:00,ETH-USDT,asset,Synthetic,0.55,1.0,positive,positive
+v-mkt-5,2024-01-05,2024-01-05 12:00:00,MARKET,market,Synthetic,0.25,1.0,positive,positive
