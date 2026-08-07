@@ -20,9 +20,9 @@ paper/runtime safety gates, and a read-only Streamlit dashboard.
 
 ## 🔥 News
 
-- **[Coming Soon]** Full benchmark codebase released.
 - **[Coming Soon]** Real-money live trading evaluation.
-- **[Coming Soon]** Live paper-trading leaderboard is online.
+- **[Aug.8,2026]** Live paper-trading leaderboard is online.
+- **[Aug.6,2026]** Full benchmark codebase released.
 
 
 ## What is included
