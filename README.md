@@ -53,7 +53,9 @@ The repository provides a unified framework for running and evaluating different
 
 The default quickstart runs entirely offline and does not require exchange credentials or submit any real orders.
 
-## Install
+## 🚀 Quick Start
+
+### Install
 
 Python 3.10 through 3.12 is supported.
 
