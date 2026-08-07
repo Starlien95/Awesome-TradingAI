@@ -55,17 +55,14 @@ The default quickstart runs entirely offline and does not require exchange crede
 
 ## 🚀 Quick Start
 
-### Install
+### Installation
 
-Python 3.10 through 3.12 is supported.
+Clone the repository and install the required dependencies:
 
 ```bash
-git clone https://github.com/Starlien95/Awesome-TradingAI.git
-cd Awesome-TradingAI
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -e .
+git clone https://github.com/your-org/your-repo.git
+cd your-repo
+pip install -r requirements.txt
 ```
 
 Install only the integrations you need:
