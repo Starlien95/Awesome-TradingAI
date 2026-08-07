@@ -3,6 +3,7 @@
 <img src="assets/banner.png" alt="Can AI Make Money in Crypto?" width="650">
 
 [简体中文](README.zh-CN.md)
+
 [Documentation](docs/index.md) | [CLI reference](docs/reference/cli.md)
 <br><br>
 
