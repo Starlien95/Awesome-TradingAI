@@ -1,6 +1,7 @@
 <div align="center">
 
 <img src="assets/banner.png" alt="Can AI Make Money in Crypto?" width="650">
+
 [简体中文](README.zh-CN.md)
 <br><br>
 
