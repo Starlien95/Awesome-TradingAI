@@ -101,7 +101,9 @@ quant-bench compare --workspace ./qb-workspace
 ```
 The resulting runs can then be compared under a consistent evaluation protocol using the compare command.
 
-### Local dashboard
+### Local Dashboard
+
+Install the optional dashboard dependencies and launch the local analytics dashboard:
 
 ```bash
 python -m pip install -e ".[dashboard]"
