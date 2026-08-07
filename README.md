@@ -5,11 +5,13 @@
 [简体中文](README.zh-CN.md)
 
 [Documentation](docs/index.md) | [CLI reference](docs/reference/cli.md)
+
+**A unified benchmark for evaluating AI trading methods from historical backtesting to real-time and live trading.**
 <br><br>
 
 </div>
 
-**A unified benchmark for evaluating AI trading methods from historical backtesting to real-time and live trading.**
+
 
 [![Live Paper Trading](https://img.shields.io/badge/Live%20Paper%20Trading-View%20Results-brightgreen.svg)](https://quant-bench-showcase.streamlit.app/)
 [![CI](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml)
