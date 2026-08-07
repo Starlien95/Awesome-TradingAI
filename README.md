@@ -1,4 +1,4 @@
-# Awesome TradingAI
+# Can AI Make Money in Crypto?
 
 **A unified benchmark for evaluating AI trading methods from historical backtesting to real-time and live trading.**
 
@@ -6,13 +6,6 @@
 [![CI](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/python-3.10--3.12-blue.svg)](pyproject.toml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-
-Awesome TradingAI is an open-source benchmark and local analysis toolkit for
-cryptocurrency trading methods. Its installable engine is named `quant-bench`.
-It provides reproducible backtests, method adapters, versioned artifacts,
-paper/runtime safety gates, and a read-only Streamlit dashboard.
-
-## Can AI Make Money in Crypto?
 
 *Can AI Make Money in Crypto?* is an open-source benchmark and codebase for evaluating various AI for trading methods, including machine learning, reinforcement learning, LLM, and agent-based trading methods. It provides unified interfaces for historical backtesting and real-time paper trading on cryptocurrency exchanges, while continuously presenting backtest, live paper-trading results, and real-money trading results.
 
