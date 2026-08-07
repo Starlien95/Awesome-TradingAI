@@ -78,7 +78,7 @@ python -m pip install -e ".[finmem,finmem-live]"
 python -m pip install -e ".[news,fingpt-live,runtime]"
 ```
 
-## Five-minute offline run
+### Five-minute offline run
 
 ```bash
 quant-bench doctor
