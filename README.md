@@ -110,10 +110,7 @@ python -m pip install -e ".[dashboard]"
 quant-bench dashboard --workspace ./qb-workspace
 ```
 
-The dashboard reads artifacts already present in the selected workspace. It
-does not train models, call an exchange, read credentials, or control a trading
-process. See [Inspect results](docs/how-to/results.md) and the
-[dashboard design](docs/design/LOCAL_ANALYTICS_DASHBOARD.md).
+The dashboard provides an interactive view of results and artifacts stored in the selected workspace. It operates in read-only mode: it does not train models, access exchange accounts, read trading credentials, submit orders, or control any running trading process. See [Inspect results](docs/how-to/results.md) and the [dashboard design](docs/design/LOCAL_ANALYTICS_DASHBOARD.md).
 
 ### Methods and execution modes
 
