@@ -112,7 +112,10 @@ quant-bench dashboard --workspace ./qb-workspace
 
 The dashboard provides an interactive view of results and artifacts stored in the selected workspace. It operates in read-only mode: it does not train models, access exchange accounts, read trading credentials, submit orders, or control any running trading process. See [Inspect results](docs/how-to/results.md) and the [dashboard design](docs/design/LOCAL_ANALYTICS_DASHBOARD.md).
 
-### Methods and execution modes
+### Methods and Execution Modes
+
+Inspect the available methods, review their capabilities, and verify compatibility with a specific execution mode before running an experiment:
+
 
 ```bash
 quant-bench methods list
@@ -124,14 +127,14 @@ quant-bench methods check canonical:crypto_smoke_v1 \
 
 | Mode | Meaning |
 | --- | --- |
-| `backtest` | historical or synthetic research without exchange-account access |
-| `paper` | local accounting with no exchange orders |
-| `simulated` | exchange demo environment with explicit network, credential and confirmation gates |
-| `live` | live exchange environment with separate order permission and `LIVE_ORDERS` confirmation |
+| `backtest` | Evaluate a method on historical or synthetic market data without accessing an exchange account |
+| `paper` | Run the trading logic with local portfolio accounting and simulated execution, without submitting orders to an exchange |
+| `simulated` | Connect to an exchange-provided demo environment using explicit network, credential, and confirmation controls |
+| `live` | Connect to the live exchange environment, with separate order permissions and an explicit `LIVE_ORDERS` confirmation requirement |
 
-Method capabilities differ. Use `methods show` and `methods check` before a
-run. External `ai_trade` methods remain separate processes and require their
-own reviewed checkout.
+Execution capabilities vary across methods. Use `methods show` to inspect the interfaces supported by a method and `methods check` to verify that all requirements for the selected execution mode are satisfied before starting a run.
+External `ai_trade` integrations are executed as separate processes and require an independently reviewed local checkout.
+
 
 ## Public interfaces
 
