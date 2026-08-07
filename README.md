@@ -2,7 +2,7 @@
 
 **A unified benchmark for evaluating AI trading methods from historical backtesting to real-time and live trading.**
 
-[📈 Live Results](#) ·
+[![Live Paper Trading](https://img.shields.io/badge/Live%20Paper%20Trading-View%20Results-brightgreen.svg)](https://quant-bench-showcase.streamlit.app/)
 [![CI](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/python-3.10--3.12-blue.svg)](pyproject.toml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
