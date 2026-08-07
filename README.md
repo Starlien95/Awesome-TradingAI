@@ -75,7 +75,9 @@ python -m pip install -e ".[finmem,finmem-live]"
 python -m pip install -e ".[news,fingpt-live,runtime]"
 ```
 
-### Five-minute offline run
+### Offline Quickstart
+
+Run the benchmark locally without network access or exchange credentials:
 
 ```bash
 quant-bench doctor
@@ -83,9 +85,7 @@ quant-bench quickstart --offline --workspace ./qb-workspace
 quant-bench report --workspace ./qb-workspace
 ```
 
-The quickstart uses bundled synthetic BTC and ETH OHLCV data. It validates the
-data, builds causal features and labels, trains a NumPy model, runs a cost-aware
-backtest, and writes a checksummed run under `qb-workspace/runs/`.
+The offline quickstart uses bundled synthetic BTC and ETH OHLCV data to verify the complete evaluation pipeline. It validates the input data, constructs leakage-safe features and labels, trains a lightweight NumPy baseline, performs cost-aware historical backtesting, and stores the resulting artifacts and checksums under `qb-workspace/runs/`.
 
 Run a small parameter sweep:
 
