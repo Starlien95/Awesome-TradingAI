@@ -36,21 +36,22 @@ Our goal is to answer a simple question:
 
 > **Can AI actually make money in crypto?**
 
-## What is included
+## Supported Methods & Features
 
-| Area | Available functionality |
+The repository provides a unified framework for running and evaluating different generations of AI trading methods, from traditional machine learning to LLM-based trading agents.
+
+| Category | What we provide |
 | --- | --- |
-| Benchmark core | typed configs, deterministic runs, explicit costs, metrics, checksums, comparison, reports |
-| Traditional ML | NumPy baseline, Qlib 0.9.7 workflows, model catalog, tuning and saved-artifact adapters |
-| Reinforcement learning | MacroHFT runtime adapter and trusted-local TorchScript conversion boundary |
-| FinGPT | synthetic news dry-run, sentiment research, backtest, tuning and guarded paper/runtime adapters |
-| FinMem | InvestorBench research integration, local data verification, paper ledger and guarded service adapters |
-| Unified methods | one discovery, check, run and status interface across built-in and external methods |
-| Data contracts | versioned market, prediction, return, metric, signal, trade and manifest contracts |
-| Analysis | local equity, benchmark, alpha, drawdown, signal, execution, health and data-quality views |
+| **Traditional ML** | Classical baselines and Qlib-based trading workflows, with support for training, tuning, backtesting, and saved models |
+| **Reinforcement Learning** | Integration with RL-based trading methods such as MacroHFT, with a unified evaluation interface |
+| **LLM-based Trading** | Support for FinGPT-style sentiment and trading pipelines, including backtesting and paper trading |
+| **Trading Agents** | Integration with agent-based methods such as FinMem for research evaluation and real-time paper trading |
+| **Historical Backtesting** | A consistent backtesting environment with transaction costs, trading metrics, and reproducible configurations |
+| **Real-Time Paper Trading** | Run supported methods on live cryptocurrency market data and track their trading performance over time |
+| **Unified Interface** | Discover, configure, run, and compare ML, RL, LLM, and agent-based methods through a common workflow |
+| **Analysis & Reporting** | Portfolio value, returns, alpha, drawdown, trading signals, executions, and data-quality analysis |
 
-The default install and offline quickstart do not use network access, read
-credentials, query an account, or submit an order.
+The default quickstart runs entirely offline and does not require exchange credentials or submit any real orders.
 
 ## Install
 
