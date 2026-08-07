@@ -17,6 +17,17 @@
 - **[Aug. 8, 2026]** Live paper-trading leaderboard is online.
 - **[Aug. 6, 2026]** Full benchmark codebase released.
 
+## Why This Benchmark?
+
+Most AI trading methods are evaluated only through **historical backtesting**. However, strong backtest performance does not necessarily translate into profits in unseen and continuously evolving markets.
+
+We evaluate trading methods across three stages:
+
+**Historical Backtesting → Real-Time Paper Trading → Live Trading**
+
+Our goal is to answer a simple question:
+
+> **Can AI actually make money in crypto?**
 
 ## What is included
 
