@@ -3,6 +3,8 @@
 <img src="assets/banner.png" alt="Can AI Make Money in Crypto?" width="650">
 
 [简体中文](README.zh-CN.md)
+
+[Documentation](docs/index.md) | [CLI reference](docs/reference/cli.md)
 <br><br>
 
 </div>
@@ -16,7 +18,7 @@
 
 **Can AI Make Money in Crypto?** is an open-source benchmark and codebase for evaluating various AI for trading methods, including machine learning, reinforcement learning, LLM, and agent-based trading methods. It provides unified interfaces for historical backtesting and real-time paper trading on cryptocurrency exchanges, while continuously presenting backtest, live paper-trading results, and real-money trading results.
 
-[Documentation](docs/index.md) | [CLI reference](docs/reference/cli.md)
+
 
 ## 🔥 News
 
