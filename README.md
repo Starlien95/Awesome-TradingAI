@@ -101,7 +101,7 @@ quant-bench sweep crypto_smoke_v1 \
 quant-bench compare --workspace ./qb-workspace
 ```
 
-## Local dashboard
+### Local dashboard
 
 ```bash
 python -m pip install -e ".[dashboard]"
@@ -113,7 +113,7 @@ does not train models, call an exchange, read credentials, or control a trading
 process. See [Inspect results](docs/how-to/results.md) and the
 [dashboard design](docs/design/LOCAL_ANALYTICS_DASHBOARD.md).
 
-## Methods and execution modes
+### Methods and execution modes
 
 ```bash
 quant-bench methods list
