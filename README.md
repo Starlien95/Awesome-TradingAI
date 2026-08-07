@@ -18,6 +18,13 @@ paper/runtime safety gates, and a read-only Streamlit dashboard.
 
 [简体中文](README.zh-CN.md) | [Documentation](docs/index.md) | [CLI reference](docs/reference/cli.md)
 
+## 🔥 News
+
+- **[Coming Soon]** Full benchmark codebase released.
+- **[Coming Soon]** Real-money live trading evaluation.
+- **[Coming Soon]** Live paper-trading leaderboard is online.
+
+
 ## What is included
 
 | Area | Available functionality |
