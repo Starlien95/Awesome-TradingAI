@@ -1,4 +1,10 @@
-# Can AI Make Money in Crypto?
+<div align="center">
+
+<img src="assets/banner.png" alt="Can AI Make Money in Crypto?" width="650">
+
+<br><br>
+
+</div>
 
 **A unified benchmark for evaluating AI trading methods from historical backtesting to real-time and live trading.**
 
