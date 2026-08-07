@@ -87,7 +87,9 @@ quant-bench report --workspace ./qb-workspace
 
 The offline quickstart uses bundled synthetic BTC and ETH OHLCV data to verify the complete evaluation pipeline. It validates the input data, constructs leakage-safe features and labels, trains a lightweight NumPy baseline, performs cost-aware historical backtesting, and stores the resulting artifacts and checksums under `qb-workspace/runs/`.
 
-Run a small parameter sweep:
+### Parameter Sweep
+
+A parameter sweep can be launched through the same interface:
 
 ```bash
 quant-bench sweep crypto_smoke_v1 \
@@ -97,6 +99,7 @@ quant-bench sweep crypto_smoke_v1 \
 
 quant-bench compare --workspace ./qb-workspace
 ```
+The resulting runs can then be compared under a consistent evaluation protocol using the compare command.
 
 ### Local dashboard
 
