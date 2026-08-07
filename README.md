@@ -2,7 +2,6 @@
 
 **A unified benchmark for evaluating AI trading methods from historical backtesting to real-time and live trading.**
 
-[🌐 Website](#) · 
 [📈 Live Results](#) ·
 [![CI](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/python-3.10--3.12-blue.svg)](pyproject.toml)
