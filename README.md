@@ -138,7 +138,7 @@ The dashboard provides an interactive view of results and artifacts stored in th
 
 ### Methods and Execution Modes
 
-Inspect the available methods, review their capabilities, and verify compatibility with a specific execution mode before running an experiment:
+Use the following commands to inspect available methods, review their supported capabilities, and verify whether a method is compatible with a given execution mode:
 
 
 ```bash
@@ -149,12 +149,14 @@ quant-bench methods check canonical:crypto_smoke_v1 \
   --workspace ./qb-workspace
 ```
 
-| Mode | Meaning |
+The framework supports four execution modes:
+
+| Mode | Description |
 | --- | --- |
-| `backtest` | Evaluate a method on historical or synthetic market data without accessing an exchange account |
-| `paper` | Run the trading logic with local portfolio accounting and simulated execution, without submitting orders to an exchange |
-| `simulated` | Connect to an exchange-provided demo environment using explicit network, credential, and confirmation controls |
-| `live` | Connect to the live exchange environment, with separate order permissions and an explicit `LIVE_ORDERS` confirmation requirement |
+| `backtest` | Evaluate a method on historical or synthetic market data without connecting to an exchange account |
+| `local-paper` | Run a method with local portfolio accounting and simulated order execution, without submitting orders to an exchange |
+| `exchange-paper` | Run a method in an exchange-provided paper-trading environment using live market data and simulated funds; network access and exchange credentials are required |
+| `live` | Run a method in the live exchange environment with real funds; separate trading permissions and explicit `LIVE_ORDERS` confirmation are required |
 
 Execution capabilities vary across methods. Use `methods show` to inspect the interfaces supported by a method and `methods check` to verify that all requirements for the selected execution mode are satisfied before starting a run.
 External `ai_trade` integrations are executed as separate processes and require an independently reviewed local checkout.
