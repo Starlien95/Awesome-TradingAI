@@ -37,9 +37,9 @@ The evaluation period begins at `2026-06-01 00:00 UTC+08:00` for all methods exc
 
 ## 🔥 News
 
-- **[Coming Soon]** Real-money live trading evaluation.
-- **[Aug. 8, 2026]** Exchange paper-trading visualization is online.
+- **[Aug. 8, 2026]** Public OKX paper-trading dashboard released.
 - **[Aug. 6, 2026]** Full benchmark codebase released.
+- **[Coming Soon]** Real-money live trading evaluation.
 
 ## Why This Benchmark?
 
