@@ -4,7 +4,7 @@
 
 <br>
 
-*A unified benchmark for evaluating AI trading methods from historical backtesting to real-time crypto markets.*
+*A unified benchmark for evaluating AI trading methods from historical backtesting to real-time cryptocurrency markets.*
 
 
 
@@ -23,7 +23,7 @@
 </div>
 
 
-**Can AI Make Money in Crypto?** is an open-source benchmark and codebase for evaluating AI trading methods, including machine learning, reinforcement learning, LLM-based methods, and trading agents. It provides unified interfaces for historical backtesting, real-time paper trading on cryptocurrency exchanges, and live trading, while continuously publishing backtest and paper-trading results. Real-money trading results will be added in future evaluations.
+**Can AI Make Money in Crypto?** is an open-source benchmark and codebase for evaluating AI trading methods in cryptocurrency markets, including machine learning, reinforcement learning, LLM-based methods, and trading agents. It provides unified interfaces for historical backtesting, real-time paper trading on cryptocurrency exchanges, and live trading, while continuously publishing backtest and paper-trading results. Real-money trading results will be added in future evaluations.
 
 ## Real-time Exchange Paper-Trading Results
 
