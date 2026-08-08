@@ -65,7 +65,7 @@ The repository provides a unified framework for integrating, running, and evalua
 | Capability | What we provide |
 | --- | --- |
 | **Historical Backtesting** | A consistent backtesting environment with configurable transaction costs, portfolio settings, and reproducible experiment configurations |
-| **Real-Time Paper Trading** | Run supported methods on live cryptocurrency market data through paper-trading environments and continuously track their trading performance |
+| **Exchange Paper Trading** | Run supported methods on live cryptocurrency market data through exchange-provided paper-trading environments and continuously track their trading performance |
 | **Unified Method Interface** | A common interface for configuring, validating, running, and comparing ML, RL, LLM, and agent-based trading methods |
 | **Unified Analysis** | A common analysis pipeline for all supported methods, covering returns, alpha, drawdown, trading signals, execution summaries, and data quality |
 
