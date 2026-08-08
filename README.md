@@ -6,7 +6,7 @@
 
 [Documentation](docs/index.md) | [CLI reference](docs/reference/cli.md)
 
-*A unified benchmark for evaluating AI trading methods from historical backtesting to real-time and live trading.*
+*A unified benchmark for evaluating AI trading methods from historical backtesting to real-time paper and live trading.*
 <br><br>
 
 </div>
