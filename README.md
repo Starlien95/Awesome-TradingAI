@@ -208,7 +208,7 @@ network, account or order capabilities.
 
 ## Development and Quality Checks
 
-These commands prepare a contributor environment and run the same source, type, test, documentation, and release-policy checks used by CI. They do not deploy the package, the public Streamlit site, or a trading process.
+Install the development dependencies and run the same linting, static type checking, testing, documentation build, and release-boundary checks used by CI:
 
 ```bash
 python -m pip install -e ".[dev,docs,dashboard]"
@@ -219,6 +219,6 @@ mkdocs build --strict
 python tools/check_release.py
 ```
 
-See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and the
-[provenance register](docs/legal/PROVENANCE.md). The project is licensed under
-MIT. Bundled third-party portions retain their own notices and licenses.
+These commands are intended for local development and validation only. They do not publish the package, deploy the public Streamlit site, or start any paper-trading or live-trading process.
+For contribution guidelines, security policies, and third-party provenance, see [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and the [Provenance Register](docs/legal/PROVENANCE.md).
+The project is licensed under the MIT License. Bundled third-party components remain subject to their respective notices and license terms.
