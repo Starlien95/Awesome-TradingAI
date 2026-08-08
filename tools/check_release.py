@@ -38,6 +38,15 @@ def _error(errors: list[str], condition: bool, message: str) -> None:
         errors.append(message)
 
 
+def _dependency_names(requirements: list[str]) -> set[str]:
+    return {
+        re.split(r"[<>=!~;\s\[]", requirement, maxsplit=1)[0]
+        .lower()
+        .replace("_", "-")
+        for requirement in requirements
+    }
+
+
 def _read_json(path: Path, errors: list[str]) -> dict[str, Any]:
     try:
         loaded = json.loads(path.read_text(encoding="utf-8"))
@@ -84,6 +93,30 @@ def audit_repository(root: Path = ROOT) -> list[str]:
     )
     dependencies = project.get("dependencies")
     _error(errors, isinstance(dependencies, list) and bool(dependencies), "project dependencies are missing")
+    optional = project.get("optional-dependencies")
+    _error(errors, isinstance(optional, dict) and bool(optional), "project optional dependencies are missing")
+    if isinstance(optional, dict):
+        user_groups = set(optional) - {"all", "dev", "release"}
+        required = set().union(
+            *(
+                _dependency_names(requirements)
+                for group, requirements in optional.items()
+                if group in user_groups and isinstance(requirements, list)
+            )
+        )
+        all_dependencies = _dependency_names(optional.get("all", []))
+        missing_from_all = sorted(required - all_dependencies)
+        _error(
+            errors,
+            not missing_from_all,
+            f"all extra is missing user dependencies: {missing_from_all}",
+        )
+        news_dependencies = _dependency_names(optional.get("news", []))
+        _error(
+            errors,
+            "torch" in news_dependencies,
+            "news extra must declare its direct torch runtime dependency",
+        )
     urls = project.get("urls")
     _error(
         errors,

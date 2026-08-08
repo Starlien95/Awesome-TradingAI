@@ -7,6 +7,7 @@ theme:
   name: material
 nav:
   - Home: index.md
+  - Environment: ENVIRONMENT.md
   - Tutorials:
       - Offline quickstart: tutorials/quickstart.md
       - First Qlib run: tutorials/qlib-first-run.md

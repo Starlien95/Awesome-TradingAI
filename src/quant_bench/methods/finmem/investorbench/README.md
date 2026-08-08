@@ -6,7 +6,10 @@
 > the upstream or locally extended market/news JSON files. The quant-bench
 > command surface, editable-workspace flow, and local data boundary are
 > documented in `docs/methods/finmem.md`, `docs/data/FINMEM_INVESTORBENCH_DATA.md`,
-> and the repository-level `THIRD_PARTY_NOTICES.md`.
+> `docs/ENVIRONMENT.md`, and the repository-level `THIRD_PARTY_NOTICES.md`.
+> This subtree's `requirements.txt` and `Dockerfile` are provenance references
+> for the upstream snapshot. They are not Awesome TradingAI installation or
+> deployment entrypoints.
 
 For quant-bench users, prefer `quant-bench finmem init` and
 `quant-bench finmem run`. They generate a user-owned config and avoid modifying

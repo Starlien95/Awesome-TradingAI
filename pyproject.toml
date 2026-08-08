@@ -96,6 +96,7 @@ news = [
   "peft>=0.10",
   "safetensors>=0.4",
   "sentencepiece>=0.1.99",
+  "torch>=2.2,<3",
   "transformers>=4.40",
 ]
 dev = [
@@ -124,6 +125,7 @@ all = [
   "mkdocs-material>=9.5,<10",
   "matplotlib>=3.8,<4",
   "optuna>=4,<5",
+  "orjson>=3.10,<4",
   "peft>=0.10",
   "plotly>=5,<7",
   "pyqlib==0.9.7",

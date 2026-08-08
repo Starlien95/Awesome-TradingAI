@@ -13,19 +13,25 @@
 
 
 
-[![Live Paper Trading](https://img.shields.io/badge/Live%20Paper%20Trading-View%20Results-brightgreen.svg)](https://quant-bench-showcase.streamlit.app/)
+[![OKX Demo Results](https://img.shields.io/badge/OKX%20Demo%20Results-Open%20Visualization-brightgreen.svg)](https://quant-bench-showcase.streamlit.app/)
 [![CI](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/python-3.10--3.12-blue.svg)](pyproject.toml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **Can AI Make Money in Crypto?** is an open-source benchmark and codebase for evaluating various AI for trading methods, including machine learning, reinforcement learning, LLM, and agent-based trading methods. It provides unified interfaces for historical backtesting and real-time paper trading on cryptocurrency exchanges, while continuously presenting backtest, live paper-trading results, and real-money trading results.
 
+## Public Demo Results
+
+[Open the live read-only visualization](https://quant-bench-showcase.streamlit.app/) to inspect normalized return curves, BTC Buy & Hold comparisons, drawdowns, signals, execution aggregates, method details, and data-quality status for 16 public runs and 15 method identities.
+
+The current public dataset uses OKX demo execution, which corresponds to the library's `simulated` mode. It is separate from local `paper` accounting and from live trading. The site reads delayed, sanitized snapshots only and cannot query an account or submit an order. Time-series views start at `2026-06-01 00:00 UTC`; agent runs begin at their first real observations on June 4 with no synthetic backfill.
+
 
 
 ## 🔥 News
 
 - **[Coming Soon]** Real-money live trading evaluation.
-- **[Aug. 8, 2026]** Live paper-trading leaderboard is online.
+- **[Aug. 8, 2026]** Public OKX demo visualization is online.
 - **[Aug. 6, 2026]** Full benchmark codebase released.
 
 ## Why This Benchmark?
@@ -64,10 +70,17 @@ The default quickstart runs entirely offline and does not require exchange crede
 Clone the repository and install the required dependencies:
 
 ```bash
-git clone https://github.com/your-org/your-repo.git
-cd your-repo
-pip install -r requirements.txt
+git clone https://github.com/Starlien95/Awesome-TradingAI.git
+cd Awesome-TradingAI
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -e .
 ```
+
+See [Environment and dependency requirements](docs/ENVIRONMENT.md) for the
+supported Python and platform matrix, optional extras, external services, GPU
+boundaries, and offline installation requirements.
 
 Install only the integrations you need:
 
@@ -151,6 +164,7 @@ External `ai_trade` integrations are executed as separate processes and require 
 - [Runtime CSV schemas](docs/runtime/CSV_SCHEMA.md)
 - [Artifacts and manifests](docs/reference/artifacts.md)
 - [Repository layout](docs/REPOSITORY_LAYOUT.md)
+- [Environment requirements](docs/ENVIRONMENT.md)
 
 The repository name is `Awesome TradingAI`. The stable distribution, import,
 CLI and plugin namespaces remain `quant-bench` and `quant_bench` for API
@@ -183,7 +197,9 @@ production logs are excluded from this repository.
 Read [Security boundaries](docs/concepts/security-boundaries.md) before enabling
 network, account or order capabilities.
 
-## Development
+## Development and Quality Checks
+
+These commands prepare a contributor environment and run the same source, type, test, documentation, and release-policy checks used by CI. They do not deploy the package, the public Streamlit site, or a trading process.
 
 ```bash
 python -m pip install -e ".[dev,docs,dashboard]"

@@ -1,3 +1,5 @@
+# Upstream provenance recipe only. This is not an Awesome TradingAI deployment
+# template. Use the repository-level pyproject.toml and docs/ENVIRONMENT.md.
 FROM python:3.10.14 as python_img
 FROM ubuntu:22.04
 COPY --from=python_img /usr/local/bin/python /usr/local/bin/python

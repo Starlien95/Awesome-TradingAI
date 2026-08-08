@@ -17,18 +17,21 @@ synthetic fixture, and common output contract.
 Offline research uses core dependencies only:
 
 ```bash
-pip install quant-bench
+python -m pip install -e .
 ```
 
 Install optional capabilities separately:
 
 ```bash
 # Local transformers/PEFT inference
-pip install "quant-bench[news]"
+python -m pip install -e ".[news]"
 
 # RSS/Google News, public prices, and OKX adapters
-pip install "quant-bench[fingpt-live,runtime]"
+python -m pip install -e ".[fingpt-live,runtime]"
 ```
+
+These commands install from the current checkout. PyPI installation applies
+only after an official `quant-bench` release is published.
 
 ## Offline quickstart
 

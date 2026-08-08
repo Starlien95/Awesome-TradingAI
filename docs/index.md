@@ -4,6 +4,7 @@ Choose the path that matches the work you are doing.
 
 ## First run
 
+- [Environment and dependency requirements](ENVIRONMENT.md): choose the Python environment and extras required by each capability.
 - [Offline quickstart](tutorials/quickstart.md): install from source and produce a complete checksummed run without network access.
 - [First Qlib run](tutorials/qlib-first-run.md): prepare OHLCV data, select one of 202 templates, and run it in a workspace.
 

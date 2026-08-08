@@ -10,6 +10,14 @@ source .venv/bin/activate
 python -m pip install -e ".[dev]"
 ```
 
+The core contributor environment above is sufficient for dependency-light
+tests. Install the full local quality, documentation, and dashboard profile
+when changing those surfaces:
+
+```bash
+python -m pip install -e ".[dev,docs,dashboard]"
+```
+
 Run the local quality gates before opening a change:
 
 ```bash

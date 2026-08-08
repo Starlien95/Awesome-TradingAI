@@ -10,6 +10,12 @@ paper/runtime 安全门禁和只读 Streamlit 仪表盘。
 
 [English](README.md) | [文档](docs/index.md) | [CLI 参考](docs/reference/cli.md)
 
+## 公开模拟盘结果
+
+[打开只读可视化网站](https://quant-bench-showcase.streamlit.app/)，可以查看 16 个公开运行、15 个方法身份的归一化收益曲线、BTC 买入并持有对照、回撤、信号、执行聚合、方法说明和数据质量状态。
+
+当前公开数据全部来自 OKX demo，对应库中的 `simulated` 模式。它与本地 `paper` 账本和实盘交易是三个独立边界。网站只读取延迟、脱敏后的公共快照，不能查询账户或提交订单。所有时间序列从 `2026-06-01 00:00 UTC` 展示，agent 方法从 6 月 4 日的首个真实观测点开始，起点前不生成补线。
+
 ## 功能
 
 | 范围 | 已实现功能 |
@@ -47,6 +53,10 @@ python -m pip install -e ".[data-qlib]"
 python -m pip install -e ".[finmem,finmem-live]"
 python -m pip install -e ".[news,fingpt-live,runtime]"
 ```
+
+完整的 Python 与平台范围、可选依赖组合、外部服务、GPU 边界和离线安装要求见
+[环境与依赖要求](docs/ENVIRONMENT.md)。项目以 `pyproject.toml` 作为权威依赖声明，
+不使用会把全部重依赖强制安装给所有用户的根目录 `requirements.txt`。
 
 ## 五分钟离线运行
 
@@ -112,6 +122,7 @@ quant-bench methods check canonical:crypto_smoke_v1 \
 - [Runtime CSV schema](docs/runtime/CSV_SCHEMA.md)
 - [Artifact 和 manifest](docs/reference/artifacts.md)
 - [目录说明](docs/REPOSITORY_LAYOUT.md)
+- [环境与依赖要求](docs/ENVIRONMENT.md)
 
 仓库名为 `Awesome TradingAI`。为保持 API 兼容，distribution、import、CLI 和 plugin
 namespace 继续使用 `quant-bench` 与 `quant_bench`。
@@ -141,7 +152,9 @@ Qlib 数据库和完整生产日志不进入本仓库。
 
 启用网络、账户或订单能力前先阅读[安全边界](docs/concepts/security-boundaries.md)。
 
-## 开发
+## 开发和质量检查
+
+以下命令用于准备贡献者环境，并运行源码、类型、测试、文档和发布边界检查。它们不会部署 Python 包、公开 Streamlit 网站或交易进程。
 
 ```bash
 python -m pip install -e ".[dev,docs,dashboard]"
