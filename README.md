@@ -4,7 +4,7 @@
 
 <br>
 
-*A unified benchmark for evaluating AI trading methods from historical backtesting to real-time markets.*
+*A unified benchmark for evaluating AI trading methods from historical backtesting to real-time crypto markets.*
 
 
 
