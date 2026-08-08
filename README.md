@@ -219,6 +219,10 @@ mkdocs build --strict
 python tools/check_release.py
 ```
 
+## Citation
+
+Citation information will be added upon publication.
+
 These commands are intended for local development and validation only. They do not publish the package, deploy the public Streamlit site, or start any paper-trading or live-trading process.
 For contribution guidelines, security policies, and third-party provenance, see [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and the [Provenance Register](docs/legal/PROVENANCE.md).
 The project is licensed under the MIT License. Bundled third-party components remain subject to their respective notices and license terms.
