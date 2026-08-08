@@ -13,7 +13,7 @@
 [**CLI Reference**](docs/reference/cli.md) ·
 [**简体中文**](README.zh-CN.md)
 
-<br><br>
+<br>
 
 [![Exchange Paper Trading](https://img.shields.io/badge/Exchange%20Paper%20Trading-Live%20Results-brightgreen.svg)](https://quant-bench-showcase.streamlit.app/)
 [![CI](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml)
