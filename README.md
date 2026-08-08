@@ -13,7 +13,7 @@
 
 
 
-[![Exchange paper trading](https://img.shields.io/badge/OKX%20Demo%20Results-Open%20Visualization-brightgreen.svg)](https://quant-bench-showcase.streamlit.app/)
+[![Exchange paper trading](https://img.shields.io/badge/Exchange%20Paper%20Trading-Visualization-brightgreen.svg)](https://quant-bench-showcase.streamlit.app/)
 [![CI](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/python-3.10--3.12-blue.svg)](pyproject.toml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
