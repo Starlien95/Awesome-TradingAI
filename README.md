@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/logo.png" alt="Can AI Make Money in Crypto?" width="700">
+<img src="logo.png" alt="Can AI Make Money in Crypto?" width="700">
 
 <br>
 
