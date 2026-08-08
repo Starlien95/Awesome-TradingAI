@@ -48,18 +48,25 @@ Our goal is to answer a simple question:
 
 ## Supported Methods & Features
 
-The repository provides a unified framework for running and evaluating different generations of AI trading methods, from traditional machine learning to LLM-based trading agents.
+The repository provides a unified framework for integrating, running, and evaluating AI trading methods across different methodological paradigms, from traditional machine learning to LLM-based trading agents.
+
+### Method Integrations
 
 | Category | What we provide |
 | --- | --- |
-| **Traditional ML** | Classical baselines and Qlib-based trading workflows, with support for training, tuning, backtesting, and saved models |
-| **Reinforcement Learning** | Integration with RL-based trading methods such as MacroHFT, with a unified evaluation interface |
-| **LLM-based Trading** | Support for FinGPT-style sentiment and trading pipelines, including backtesting and paper trading |
-| **Trading Agents** | Integration with agent-based methods such as FinMem for research evaluation and real-time paper trading |
-| **Historical Backtesting** | A consistent backtesting environment with transaction costs, trading metrics, and reproducible configurations |
-| **Real-Time Paper Trading** | Run supported methods on live cryptocurrency market data and track their trading performance over time |
-| **Unified Interface** | Discover, configure, run, and compare ML, RL, LLM, and agent-based methods through a common workflow |
-| **Analysis & Reporting** | Portfolio value, returns, alpha, drawdown, trading signals, executions, and data-quality analysis |
+| **Traditional ML** | Interfaces to classical baselines and Qlib-based trading workflows, including training, tuning, backtesting, and saved-model execution |
+| **Reinforcement Learning** | Interfaces to RL-based trading methods such as MacroHFT |
+| **LLM-based Trading** | Interfaces to LLM-based trading methods such as FinGPT |
+| **Trading Agents** | Interfaces to agent-based trading methods such as FinMem |
+
+### Core Capabilities
+
+| Capability | What we provide |
+| --- | --- |
+| **Historical Backtesting** | A consistent backtesting environment with configurable transaction costs, portfolio settings, and reproducible experiment configurations |
+| **Real-Time Paper Trading** | Run supported methods on live cryptocurrency market data through paper-trading environments and continuously track their trading performance |
+| **Unified Method Interface** | A common interface for configuring, validating, running, and comparing ML, RL, LLM, and agent-based trading methods |
+| **Unified Analysis** | A common analysis pipeline for all supported methods, covering returns, alpha, drawdown, trading signals, execution summaries, and data quality |
 
 The default quickstart runs entirely offline and does not require exchange credentials or submit any real orders.
 
