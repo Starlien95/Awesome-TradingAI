@@ -22,9 +22,11 @@
 
 ## Public Demo Results
 
-[Open the live read-only visualization](https://quant-bench-showcase.streamlit.app/) to inspect normalized return curves, BTC Buy & Hold comparisons, drawdowns, signals, execution aggregates, method details, and data-quality status for 16 public runs and 15 method identities.
+[Open the public results dashboard](https://quant-bench-showcase.streamlit.app/) to explore normalized return curves, comparisons with BTC Buy & Hold, drawdowns, trading signals, execution summaries, method details, and data-quality status across 16 public runs covering 15 distinct methods.
 
-The current public dataset uses OKX demo execution, which corresponds to the library's `simulated` mode. It is separate from local `paper` accounting and from live trading. The site reads delayed, sanitized snapshots only and cannot query an account or submit an order. Time-series views start at `2026-06-01 00:00 UTC`; agent runs begin at their first real observations on June 4 with no synthetic backfill.
+The public results currently use the OKX Demo Trading environment, corresponding to the library's `exchange-paper` mode. This mode is distinct from both local `local-paper` execution and real-money `live` trading. The dashboard operates in read-only mode using delayed and sanitized result snapshots; it cannot access exchange accounts, read trading credentials, or submit orders.
+
+Time-series results begin at `2026-06-01 00:00 UTC`. Agent-based runs begin from their first observed data points on June 4, with no synthetic backfilling of the preceding period.
 
 
 
