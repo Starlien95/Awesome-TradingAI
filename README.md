@@ -37,13 +37,9 @@ The evaluation period begins at `2026-06-01 00:00 UTC+08:00` for all methods exc
 
 Most AI trading methods are evaluated only through **historical backtesting**. However, strong backtest performance does not necessarily translate into profits in unseen and continuously evolving markets.
 
-We evaluate trading methods across three stages:
+We evaluate trading methods across three stages: Historical Backtesting → Real-Time Paper Trading → Live Trading.
 
-**Historical Backtesting → Real-Time Paper Trading → Live Trading**
-
-Our goal is to answer a simple question:
-
-> **Can AI actually make money in crypto?**
+Our goal is to answer a simple question: *Can AI actually make money in crypto?*
 
 
 ## 🔥 News
