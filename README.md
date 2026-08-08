@@ -161,6 +161,7 @@ The framework supports four execution modes:
 
 Execution capabilities vary across methods. Use `methods show` to inspect the execution modes and capabilities supported by a method, and `methods check` to verify that all requirements for the selected mode are satisfied before starting a run. External method integrations provided through `ai_trade` run as separate processes and require an independently reviewed local checkout.
 
+> **Note:** The project is hosted in the `Awesome-TradingAI` repository. For backward compatibility, the Python distribution and CLI retain the names `quant-bench` and `quant_bench`.
 
 ## Public Interfaces
 
