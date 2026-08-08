@@ -54,10 +54,10 @@ The repository provides a unified framework for integrating, running, and evalua
 
 | Category | What we provide |
 | --- | --- |
-| **Traditional ML** | Interfaces to classical baselines and Qlib-based trading workflows, including training, tuning, backtesting, and saved-model execution |
-| **Reinforcement Learning** | Interfaces to RL-based trading methods such as MacroHFT |
-| **LLM-based Trading** | Interfaces to LLM-based trading methods such as FinGPT |
-| **Trading Agents** | Interfaces to agent-based trading methods such as FinMem |
+| **Traditional ML** | Interfaces to classical baselines and traditional machine learning trading workflows, including training, tuning, backtesting, and saved-model execution |
+| **Reinforcement Learning** | Interfaces to RL-based trading methods |
+| **LLM-based Trading** | Interfaces to LLM-based trading methods |
+| **Trading Agents** | Interfaces to agent-based trading methods |
 
 ### Core Capabilities
 
