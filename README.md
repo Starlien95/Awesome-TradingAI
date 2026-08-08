@@ -162,11 +162,11 @@ The framework supports four execution modes:
 Execution capabilities vary across methods. Use `methods show` to inspect the execution modes and capabilities supported by a method, and `methods check` to verify that all requirements for the selected mode are satisfied before starting a run. External method integrations provided through `ai_trade` run as separate processes and require an independently reviewed local checkout.
 
 
-## Public interfaces
+## Public Interfaces
 
 - [Python API](docs/reference/python-api.md)
 - [CLI](docs/reference/cli.md)
-- [Unified Method interface](docs/how-to/unified-methods.md)
+- [Unified method interface](docs/how-to/unified-methods.md)
 - [Model plugin guide](docs/how-to/add-model.md)
 - [Unified trading interface](docs/how-to/unified-trading-interface.md)
 - [Data contract](docs/DATA_CONTRACT.md)
@@ -179,7 +179,7 @@ The repository name is `Awesome TradingAI`. The stable distribution, import,
 CLI and plugin namespaces remain `quant-bench` and `quant_bench` for API
 compatibility.
 
-## Repository map
+## Repository Map
 
 ```text
 src/quant_bench/    installable library, CLI, methods, runtime and dashboard
@@ -194,7 +194,7 @@ Runtime data belongs in a user-selected workspace. Model weights, exchange
 credentials, account snapshots, orders, private news, Qlib stores and complete
 production logs are excluded from this repository.
 
-## Safety and scope
+## Safety and Scope
 
 - Research and dashboard commands do not place orders.
 - Credentials come from environment variables or an untracked local provider.
