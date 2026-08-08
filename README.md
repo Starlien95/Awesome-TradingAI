@@ -33,14 +33,6 @@ The public results currently use the OKX Demo Trading environment, corresponding
 
 The evaluation period begins at `2026-06-01 00:00 UTC+08:00` for all methods except the multi-agent methods, which begin at `2026-06-04 00:00 UTC+08:00`. Results are reported only from each method's actual start time, with no synthetic backfilling applied to earlier periods.
 
-
-
-## 🔥 News
-
-- **[Aug. 8, 2026]** Public OKX paper-trading dashboard released.
-- **[Aug. 6, 2026]** Full benchmark codebase released.
-- **[Coming Soon]** Real-money live trading evaluation.
-
 ## Why This Benchmark?
 
 Most AI trading methods are evaluated only through **historical backtesting**. However, strong backtest performance does not necessarily translate into profits in unseen and continuously evolving markets.
@@ -52,6 +44,13 @@ We evaluate trading methods across three stages:
 Our goal is to answer a simple question:
 
 > **Can AI actually make money in crypto?**
+
+
+## 🔥 News
+
+- **[Aug. 8, 2026]** Public OKX paper-trading dashboard released.
+- **[Aug. 6, 2026]** Full benchmark codebase released.
+- **[Coming Soon]** Real-money live trading evaluation.
 
 ## Supported Methods & Features
 
