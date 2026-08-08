@@ -6,14 +6,14 @@
 
 *A unified benchmark for evaluating AI trading methods from historical backtesting to real-time markets.*
 
-<br>
+
 
 [**Paper Trading**](https://quant-bench-showcase.streamlit.app/) ·
 [**Documentation**](docs/index.md) ·
 [**CLI Reference**](docs/reference/cli.md) ·
 [**简体中文**](README.zh-CN.md)
 
-<br>
+
 
 [![Exchange Paper Trading](https://img.shields.io/badge/Exchange%20Paper%20Trading-Live%20Results-brightgreen.svg)](https://quant-bench-showcase.streamlit.app/)
 [![CI](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml)
