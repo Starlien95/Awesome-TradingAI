@@ -159,8 +159,7 @@ The framework supports four execution modes:
 | `exchange-paper` | Run a method in an exchange-provided paper-trading environment using live market data and simulated funds; network access and exchange credentials are required |
 | `live` | Run a method in the live exchange environment with real funds; separate trading permissions and explicit `LIVE_ORDERS` confirmation are required |
 
-Execution capabilities vary across methods. Use `methods show` to inspect the interfaces supported by a method and `methods check` to verify that all requirements for the selected execution mode are satisfied before starting a run.
-External `ai_trade` integrations are executed as separate processes and require an independently reviewed local checkout.
+Execution capabilities vary across methods. Use `methods show` to inspect the execution modes and capabilities supported by a method, and `methods check` to verify that all requirements for the selected mode are satisfied before starting a run. External `ai_trade` integrations are executed as separate processes and require an independently reviewed local checkout.
 
 
 ## Public interfaces
