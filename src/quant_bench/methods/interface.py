@@ -16,14 +16,39 @@ from pydantic import Field, field_validator
 
 from quant_bench.contracts.models import StrictModel
 
+_EXECUTION_MODE_ALIASES = {
+    "paper": "local-paper",
+    "simulated": "exchange-paper",
+}
+
+_EXCHANGE_PAPER_CONFIRMATIONS = {"EXCHANGE_PAPER_ORDERS", "SIMULATED_ORDERS"}
+
 
 class ExecutionMode(str, Enum):
     """User-visible execution modes shared by every Method adapter."""
 
     BACKTEST = "backtest"
-    PAPER = "paper"
-    SIMULATED = "simulated"
+    LOCAL_PAPER = "local-paper"
+    EXCHANGE_PAPER = "exchange-paper"
     LIVE = "live"
+
+    # Keep the original Python names for callers that already import them.
+    PAPER = LOCAL_PAPER
+    SIMULATED = EXCHANGE_PAPER
+
+    @classmethod
+    def _missing_(cls, value: object) -> ExecutionMode | None:
+        if isinstance(value, str):
+            canonical = _EXECUTION_MODE_ALIASES.get(value.strip().lower())
+            if canonical is not None:
+                return cls(canonical)
+        return None
+
+    @classmethod
+    def cli_values(cls) -> tuple[str, ...]:
+        """Return canonical CLI values followed by legacy input aliases."""
+
+        return tuple(mode.value for mode in cls) + tuple(_EXECUTION_MODE_ALIASES)
 
 
 class MethodDescriptor(StrictModel):
@@ -214,7 +239,7 @@ class MethodRunner:
     @staticmethod
     def _confirmation_token(mode: ExecutionMode) -> str | None:
         return {
-            ExecutionMode.SIMULATED: "SIMULATED_ORDERS",
+            ExecutionMode.EXCHANGE_PAPER: "EXCHANGE_PAPER_ORDERS",
             ExecutionMode.LIVE: "LIVE_ORDERS",
         }.get(mode)
 
@@ -292,7 +317,12 @@ class MethodRunner:
                     )
                 )
             expected = self._confirmation_token(spec.mode)
-            if expected and spec.confirm != expected:
+            confirmation_valid = (
+                spec.confirm in _EXCHANGE_PAPER_CONFIRMATIONS
+                if spec.mode is ExecutionMode.EXCHANGE_PAPER
+                else spec.confirm == expected
+            )
+            if expected and not confirmation_valid:
                 issues.append(
                     CheckIssue(
                         code="confirmation_required",

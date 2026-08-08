@@ -73,7 +73,7 @@ Plugins declare capabilities before execution. Unknown plugins and missing depen
 
 ## Runtime boundary
 
-Research, paper, demo, and live modes are distinct capabilities. The canonical experiment runner accepts only offline research. FinGPT provides a local dry-run and paper broker. FinMem separates service access, account reads, and order writes, and writes all mutable config and state to a user workspace. Traditional ML and MacroHFT processes expose OKX demo and live modes through `runtime start`; all order paths require exported local configuration, credentials, a mode match, and an exact confirmation token. Account liquidation and production-ledger repair programs are not distributed with the public repository.
+Research, local-paper, exchange-paper, and live modes are distinct capabilities. The canonical experiment runner accepts only offline research. FinGPT provides a local dry-run and paper broker. FinMem separates service access, account reads, and order writes, and writes all mutable config and state to a user workspace. Traditional ML and MacroHFT processes expose OKX demo and live modes through `runtime start`; all order paths require exported local configuration, credentials, a mode match, and an exact confirmation token. Account liquidation and production-ledger repair programs are not distributed with the public repository.
 
 Strategy code emits a versioned `OrderRequest`; it does not own credentials or
 exchange clients. `TradingService` captures account state before and after the
@@ -85,11 +85,11 @@ audit artifacts remain compatible. See [Unified trading interface](how-to/unifie
 
 `MethodRunner` is the preferred public seam. A caller selects a Method and an
 Execution Mode in a `MethodRunSpec`; the runner validates the capability
-declaration before invoking an adapter. Backtest, paper, simulated, and live
+declaration before invoking an adapter. Backtest, local-paper, exchange-paper, and live
 are not interchangeable aliases. Mode-specific frequencies remain explicit,
 including FinAgent's daily historical engine and 4H runtime.
 
 Order execution requires a separate network flag, order flag, and exact
-simulated or live confirmation token. External live Methods use dedicated
+exchange-paper or live confirmation token. External live Methods use dedicated
 per-Method credential names. The runner writes a durable control-plane record
 and preserves each adapter's native artifacts.

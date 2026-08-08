@@ -82,7 +82,7 @@ def test_catalog_unifies_all_existing_method_families() -> None:
     }
     finagent = registry.get("finagent").descriptor
     assert finagent.frequencies_by_mode["backtest"] == ["1d"]
-    assert finagent.frequencies_by_mode["simulated"] == ["4h"]
+    assert finagent.frequencies_by_mode["exchange-paper"] == ["4h"]
 
 
 def test_ai_trade_backtest_accepts_existing_qwen_yu_key_without_leaking_value(
@@ -137,13 +137,15 @@ def test_ai_trade_live_requires_dedicated_per_agent_credentials(tmp_path: Path) 
     assert "dedicated-key" not in serialized
 
 
-def test_finagent_paper_needs_no_okx_key_and_simulated_uses_zi3(tmp_path: Path) -> None:
+def test_finagent_local_paper_needs_no_okx_key_and_exchange_paper_uses_zi3(
+    tmp_path: Path,
+) -> None:
     repo = _fake_ai_trade_repo(tmp_path / "repo")
     env_path = repo / ".env"
     env_path.write_text("DEEPSEEK_API_KEY=deepseek-only\n", encoding="utf-8")
     paper = MethodRunSpec(
         method_id="finagent",
-        mode=ExecutionMode.PAPER,
+        mode=ExecutionMode.LOCAL_PAPER,
         workspace=tmp_path / "workspace",
         repo=repo,
         allow_network=True,
@@ -152,6 +154,11 @@ def test_finagent_paper_needs_no_okx_key_and_simulated_uses_zi3(tmp_path: Path) 
     paper_result = get_method_runner().check(paper)
     assert paper_result.ready is True
     assert paper_result.spec.frequency == "4h"
+    paper_mode_index = paper_result.command.index("--mode")
+    assert paper_result.command[paper_mode_index : paper_mode_index + 2] == [
+        "--mode",
+        "paper",
+    ]
 
     env_path.write_text(
         "\n".join(
@@ -164,17 +171,25 @@ def test_finagent_paper_needs_no_okx_key_and_simulated_uses_zi3(tmp_path: Path) 
         ),
         encoding="utf-8",
     )
-    simulated = paper.model_copy(
+    exchange_paper = paper.model_copy(
         update={
-            "mode": ExecutionMode.SIMULATED,
+            "mode": ExecutionMode.EXCHANGE_PAPER,
             "execute_orders": True,
-            "confirm": "SIMULATED_ORDERS",
+            "confirm": "EXCHANGE_PAPER_ORDERS",
         }
     )
-    simulated_result = get_method_runner().check(simulated)
-    assert simulated_result.ready is True
-    key_index = simulated_result.command.index("--okx-api-key")
-    assert simulated_result.command[key_index : key_index + 2] == ["--okx-api-key", "ZI3A"]
+    exchange_paper_result = get_method_runner().check(exchange_paper)
+    assert exchange_paper_result.ready is True
+    exchange_mode_index = exchange_paper_result.command.index("--mode")
+    assert exchange_paper_result.command[exchange_mode_index : exchange_mode_index + 2] == [
+        "--mode",
+        "simulated",
+    ]
+    key_index = exchange_paper_result.command.index("--okx-api-key")
+    assert exchange_paper_result.command[key_index : key_index + 2] == [
+        "--okx-api-key",
+        "ZI3A",
+    ]
 
 
 def test_finagent_backtest_defaults_to_its_real_daily_frequency(tmp_path: Path) -> None:
@@ -220,7 +235,17 @@ def test_cli_exposes_one_methods_command_surface(
     assert main(["methods", "show", "finagent"]) == 0
     descriptor = json.loads(capsys.readouterr().out)
     assert descriptor["method_id"] == "ai_trade:finagent_live"
-    assert set(descriptor["modes"]) == {"backtest", "paper", "simulated", "live"}
+    assert set(descriptor["modes"]) == {
+        "backtest",
+        "local-paper",
+        "exchange-paper",
+        "live",
+    }
+
+    assert main(["methods", "list", "--mode", "simulated"]) == 0
+    legacy_rows = json.loads(capsys.readouterr().out)
+    assert legacy_rows
+    assert all("exchange-paper" in row["modes"] for row in legacy_rows)
 
     assert (
         main(

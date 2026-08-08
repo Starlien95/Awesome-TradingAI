@@ -163,10 +163,10 @@ class FinGPTNewsAdapter:
         family="llm_sentiment",
         adapter="fingpt_news",
         description="FinGPT sentiment research backtest or local paper cycle.",
-        modes=[ExecutionMode.BACKTEST, ExecutionMode.PAPER],
+        modes=[ExecutionMode.BACKTEST, ExecutionMode.LOCAL_PAPER],
         frequencies=["1d"],
         default_frequency="1d",
-        network_optional_modes=[ExecutionMode.PAPER],
+        network_optional_modes=[ExecutionMode.LOCAL_PAPER],
         aliases=["fingpt"],
     )
 
@@ -175,7 +175,7 @@ class FinGPTNewsAdapter:
         if spec.config and spec.config.is_file():
             try:
                 payload = yaml.safe_load(spec.config.read_text(encoding="utf-8")) or {}
-                if spec.mode == ExecutionMode.PAPER:
+                if spec.mode == ExecutionMode.LOCAL_PAPER:
                     trade_mode = str(payload.get("trade", {}).get("mode", "paper_spot"))
                     if not trade_mode.startswith("paper"):
                         issues.append(
@@ -235,20 +235,20 @@ class FinMemAdapter:
         description="InvestorBench historical run or one FinMem paper, simulated, or live cycle.",
         modes=[
             ExecutionMode.BACKTEST,
-            ExecutionMode.PAPER,
-            ExecutionMode.SIMULATED,
+            ExecutionMode.LOCAL_PAPER,
+            ExecutionMode.EXCHANGE_PAPER,
             ExecutionMode.LIVE,
         ],
         frequencies=["1d"],
         default_frequency="1d",
         network_required_modes=[
             ExecutionMode.BACKTEST,
-            ExecutionMode.SIMULATED,
+            ExecutionMode.EXCHANGE_PAPER,
             ExecutionMode.LIVE,
         ],
-        network_optional_modes=[ExecutionMode.PAPER],
-        account_modes=[ExecutionMode.SIMULATED, ExecutionMode.LIVE],
-        order_optional_modes=[ExecutionMode.SIMULATED, ExecutionMode.LIVE],
+        network_optional_modes=[ExecutionMode.LOCAL_PAPER],
+        account_modes=[ExecutionMode.EXCHANGE_PAPER, ExecutionMode.LIVE],
+        order_optional_modes=[ExecutionMode.EXCHANGE_PAPER, ExecutionMode.LIVE],
     )
 
     def check(self, spec: MethodRunSpec) -> AdapterCheck:
@@ -256,8 +256,10 @@ class FinMemAdapter:
         from quant_bench.methods.finmem.operations import doctor
 
         details = doctor(spec.workspace, spec.parameters.get("data_dir"))
-        if spec.mode in {ExecutionMode.SIMULATED, ExecutionMode.LIVE}:
-            credential_key = "okx_demo" if spec.mode == ExecutionMode.SIMULATED else "okx_live"
+        if spec.mode in {ExecutionMode.EXCHANGE_PAPER, ExecutionMode.LIVE}:
+            credential_key = (
+                "okx_demo" if spec.mode == ExecutionMode.EXCHANGE_PAPER else "okx_live"
+            )
             if (spec.query_account or spec.execute_orders) and not details["credentials_present"][
                 credential_key
             ]:
@@ -279,13 +281,13 @@ class FinMemAdapter:
             return _completed_outcome(returncode)
 
         mode = {
-            ExecutionMode.PAPER: "paper",
-            ExecutionMode.SIMULATED: "demo",
+            ExecutionMode.LOCAL_PAPER: "paper",
+            ExecutionMode.EXCHANGE_PAPER: "demo",
             ExecutionMode.LIVE: "live",
         }[spec.mode]
         confirmation = (
             "DEMO_ORDERS"
-            if spec.mode == ExecutionMode.SIMULATED and spec.execute_orders
+            if spec.mode == ExecutionMode.EXCHANGE_PAPER and spec.execute_orders
             else spec.confirm
         )
         returncode = run_live_process(
@@ -325,12 +327,12 @@ class RuntimeProcessAdapter:
             family=self.family,
             adapter="quant_bench.runtime",
             description="Packaged runtime process using reviewed local model artifacts.",
-            modes=[ExecutionMode.SIMULATED, ExecutionMode.LIVE],
+            modes=[ExecutionMode.EXCHANGE_PAPER, ExecutionMode.LIVE],
             frequencies=[self.frequency],
             default_frequency=self.frequency,
-            network_required_modes=[ExecutionMode.SIMULATED, ExecutionMode.LIVE],
-            account_modes=[ExecutionMode.SIMULATED, ExecutionMode.LIVE],
-            order_required_modes=[ExecutionMode.SIMULATED, ExecutionMode.LIVE],
+            network_required_modes=[ExecutionMode.EXCHANGE_PAPER, ExecutionMode.LIVE],
+            account_modes=[ExecutionMode.EXCHANGE_PAPER, ExecutionMode.LIVE],
+            order_required_modes=[ExecutionMode.EXCHANGE_PAPER, ExecutionMode.LIVE],
             aliases=[self.process_id],
         )
 
@@ -348,7 +350,7 @@ class RuntimeProcessAdapter:
             from quant_bench.runtime.processes import inspect_process_configs
 
             rows = inspect_process_configs(self.process_id, spec.config)
-            expected_simulated = spec.mode == ExecutionMode.SIMULATED
+            expected_simulated = spec.mode == ExecutionMode.EXCHANGE_PAPER
             for row in rows:
                 if not row.get("valid"):
                     issues.append(
@@ -380,8 +382,8 @@ class RuntimeProcessAdapter:
         assert spec.config is not None
         from quant_bench.runtime.processes import start_process
 
-        mode = "demo" if spec.mode == ExecutionMode.SIMULATED else "live"
-        confirmation = "DEMO_ORDERS" if spec.mode == ExecutionMode.SIMULATED else spec.confirm
+        mode = "demo" if spec.mode == ExecutionMode.EXCHANGE_PAPER else "live"
+        confirmation = "DEMO_ORDERS" if spec.mode == ExecutionMode.EXCHANGE_PAPER else spec.confirm
         start_process(
             self.process_id,
             spec.config,
@@ -417,8 +419,8 @@ class AiTradeAdapter:
         frequencies_by_mode = (
             {
                 ExecutionMode.BACKTEST.value: ["1d"],
-                ExecutionMode.PAPER.value: ["4h"],
-                ExecutionMode.SIMULATED.value: ["4h"],
+                ExecutionMode.LOCAL_PAPER.value: ["4h"],
+                ExecutionMode.EXCHANGE_PAPER.value: ["4h"],
                 ExecutionMode.LIVE.value: ["4h"],
             }
             if self.project == "finagent"
@@ -441,12 +443,12 @@ class AiTradeAdapter:
             network_required_modes=list(self.modes),
             account_modes=[
                 mode
-                for mode in (ExecutionMode.SIMULATED, ExecutionMode.LIVE)
+                for mode in (ExecutionMode.EXCHANGE_PAPER, ExecutionMode.LIVE)
                 if mode in self.modes
             ],
             order_required_modes=[
                 mode
-                for mode in (ExecutionMode.SIMULATED, ExecutionMode.LIVE)
+                for mode in (ExecutionMode.EXCHANGE_PAPER, ExecutionMode.LIVE)
                 if mode in self.modes
             ],
             resumable_modes=[ExecutionMode.BACKTEST]
@@ -496,6 +498,16 @@ class AiTradeAdapter:
             / "trading_mi_w_decision"
             / "BTCUSD_deepseek.py"
         )
+
+    @staticmethod
+    def _native_execution_mode(mode: ExecutionMode) -> str:
+        """Translate canonical public modes to provider-native CLI values."""
+
+        return {
+            ExecutionMode.LOCAL_PAPER: "paper",
+            ExecutionMode.EXCHANGE_PAPER: "simulated",
+            ExecutionMode.LIVE: "live",
+        }[mode]
 
     def _backtest_entrypoint(self) -> str:
         return {
@@ -622,7 +634,7 @@ class AiTradeAdapter:
                 "--coin",
                 symbol,
                 "--is-simulated",
-                str(spec.mode == ExecutionMode.SIMULATED).lower(),
+                str(spec.mode == ExecutionMode.EXCHANGE_PAPER).lower(),
                 "--record-root",
                 str(native),
                 "--run-id",
@@ -637,7 +649,7 @@ class AiTradeAdapter:
                 "--ticker",
                 symbol.replace("-", ""),
                 "--mode",
-                spec.mode.value,
+                self._native_execution_mode(spec.mode),
                 "--execute",
                 str(spec.execute_orders).lower(),
                 "--once",
@@ -661,7 +673,7 @@ class AiTradeAdapter:
             "--root",
             str(root / "subprojects" / "finagent_dvampire"),
             "--mode",
-            spec.mode.value,
+            self._native_execution_mode(spec.mode),
             "--inst-id",
             symbol,
             "--price-bar",
@@ -677,7 +689,7 @@ class AiTradeAdapter:
         ]
         if spec.once:
             command.append("--once")
-        if spec.mode == ExecutionMode.SIMULATED:
+        if spec.mode == ExecutionMode.EXCHANGE_PAPER:
             command.extend(["--okx-api-key", "ZI3A", "--okx-secret-key", "ZI3S"])
         elif spec.mode == ExecutionMode.LIVE:
             api_key, secret_key, _ = self._live_names()
@@ -700,7 +712,7 @@ class AiTradeAdapter:
                     message=f"configure one of: {', '.join(llm_names)}",
                 )
             )
-        if spec.mode in {ExecutionMode.BACKTEST, ExecutionMode.PAPER}:
+        if spec.mode in {ExecutionMode.BACKTEST, ExecutionMode.LOCAL_PAPER}:
             return issues
         if spec.mode == ExecutionMode.LIVE:
             groups = ((name,) for name in self._live_names())
@@ -898,7 +910,7 @@ def builtin_adapters() -> list[Any]:
                 "benchmark-deepseek",
                 "scripts/run_benchmark_4h_live.py",
                 "4h",
-                (ExecutionMode.BACKTEST, ExecutionMode.SIMULATED, ExecutionMode.LIVE),
+                (ExecutionMode.BACKTEST, ExecutionMode.EXCHANGE_PAPER, ExecutionMode.LIVE),
             ),
             AiTradeAdapter(
                 "benchmark_qwen",
@@ -906,7 +918,7 @@ def builtin_adapters() -> list[Any]:
                 "benchmark-qwen",
                 "scripts/run_benchmark_4h_live.py",
                 "4h",
-                (ExecutionMode.BACKTEST, ExecutionMode.SIMULATED, ExecutionMode.LIVE),
+                (ExecutionMode.BACKTEST, ExecutionMode.EXCHANGE_PAPER, ExecutionMode.LIVE),
             ),
             AiTradeAdapter(
                 "finagent_live",
@@ -916,8 +928,8 @@ def builtin_adapters() -> list[Any]:
                 "4h",
                 (
                     ExecutionMode.BACKTEST,
-                    ExecutionMode.PAPER,
-                    ExecutionMode.SIMULATED,
+                    ExecutionMode.LOCAL_PAPER,
+                    ExecutionMode.EXCHANGE_PAPER,
                     ExecutionMode.LIVE,
                 ),
             ),
@@ -927,7 +939,7 @@ def builtin_adapters() -> list[Any]:
                 "tradingagents-deepseek",
                 "tradingagents/scripts/run_btc_4h_paper_live.py",
                 "4h",
-                (ExecutionMode.BACKTEST, ExecutionMode.SIMULATED, ExecutionMode.LIVE),
+                (ExecutionMode.BACKTEST, ExecutionMode.EXCHANGE_PAPER, ExecutionMode.LIVE),
             ),
         )
     )

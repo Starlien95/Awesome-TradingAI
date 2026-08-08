@@ -25,13 +25,26 @@
 
 **Can AI Make Money in Crypto?** is an open-source benchmark and codebase for evaluating AI trading methods in cryptocurrency markets, including machine learning, reinforcement learning, LLM-based methods, and trading agents. It provides unified interfaces for historical backtesting, real-time paper trading on cryptocurrency exchanges, and live trading, while continuously publishing backtest and paper-trading results. Real-money trading results will be added in future evaluations.
 
-## 📈 Real-time Exchange Paper-Trading Results
+## 📈 Public Exchange-Paper Results
 
 [Open the public results dashboard](https://quant-bench-showcase.streamlit.app/) to explore normalized return curves, comparisons with BTC Buy & Hold, drawdowns, trading signals, execution summaries, method details, and data-quality status across 16 public runs covering 15 distinct methods.
 
 The public results currently use the OKX Demo Trading environment, corresponding to the library's `exchange-paper` mode. This mode is distinct from both local `local-paper` execution and real-money `live` trading. The dashboard operates in read-only mode using delayed and sanitized result snapshots; it cannot access exchange accounts, read trading credentials, or submit orders.
 
-The evaluation period begins at `2026-06-01 00:00 UTC+08:00` for all methods except the multi-agent methods, which begin at `2026-06-04 00:00 UTC+08:00`. Results are reported only from each method's actual start time, with no synthetic backfilling applied to earlier periods.
+The public display window begins at `2026-06-01 00:00 UTC`. Each method is normalized at its first real observation on or after that boundary. The multi-agent run begins at its first real observation on June 4, so the earlier interval remains empty with no synthetic backfilling.
+
+![Awesome TradingAI public showcase overview](docs/assets/public-showcase-overview.jpg)
+
+The overview shows the full public method set, a Top 5 comparison against BTC Buy & Hold, the return-sorted Leaderboard, and the union of public crypto assets. Open Strategy Detail in the site to inspect the exact asset symbols, timeframe, execution mode, methodology, and data window for each method.
+
+The current public evaluation covers 10 cryptocurrencies in total: ADA, BTC, DOGE, ETH, HBAR, LINK, LTC, OKB, TRX, and XRP. Asset scope differs by method:
+
+| Public methods | Assets in the current public evaluation |
+| --- | --- |
+| Traditional ML and FinGPT Sentiment SFT | ADA-USDT, BTC-USDT, DOGE-USDT, ETH-USDT, HBAR-USDT, LINK-USDT, LTC-USDT, OKB-USDT, TRX-USDT, XRP-USDT |
+| MacroHFT v1 | ETH-USDT |
+| Benchmark DeepSeek, Benchmark Qwen, FinAgent DeepSeek, TradingAgents | BTC |
+| FinMem | Separate BTC and ETH runs |
 
 ## 🔥 News
 
@@ -158,7 +171,7 @@ The framework supports four execution modes:
 | `exchange-paper` | Run a method in an exchange-provided paper-trading environment using live market data and simulated funds; network access and exchange credentials are required |
 | `live` | Run a method in the live exchange environment with real funds; separate trading permissions and explicit `LIVE_ORDERS` confirmation are required |
 
-Execution capabilities vary across methods. Use `methods show` to inspect the execution modes and capabilities supported by a method, and `methods check` to verify that all requirements for the selected mode are satisfied before starting a run. External method integrations provided through `ai_trade` run as separate processes and require an independently reviewed local checkout.
+Execution capabilities vary across methods. Use `methods show` to inspect a method's declared execution modes, frequencies, and network, account, and order capabilities. `methods check` validates the declared local prerequisites and prints a redacted command preview; it does not access the network, query an account, place an order, or prove that a remote service is available. External method integrations provided through `ai_trade` run as separate processes and require an independently reviewed local checkout.
 
 > **Note:** The project is hosted in the `Awesome-TradingAI` repository. For backward compatibility, the Python distribution and CLI retain the names `quant-bench` and `quant_bench`.
 
@@ -219,7 +232,7 @@ mkdocs build --strict
 python tools/check_release.py
 ```
 
-These commands are intended for local development and validation only. They do not publish the package, deploy the public Streamlit site, or start any paper-trading or live-trading process.
+These commands are intended for local development and validation only. They do not publish the package, deploy the public Streamlit site, or start any local-paper, exchange-paper, or live-trading process.
 For contribution guidelines, security policies, and third-party provenance, see [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and the [Provenance Register](docs/legal/PROVENANCE.md).
 The project is licensed under the MIT License. Bundled third-party components remain subject to their respective notices and license terms.
 

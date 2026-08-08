@@ -101,7 +101,7 @@ def _cmd_status(args: argparse.Namespace) -> int:
 
 def _add_run_spec_arguments(parser: argparse.ArgumentParser, *, include_dry_run: bool) -> None:
     parser.add_argument("method", help="Method id or alias from `quant-bench methods list`")
-    parser.add_argument("--mode", choices=[mode.value for mode in ExecutionMode], required=True)
+    parser.add_argument("--mode", choices=ExecutionMode.cli_values(), required=True)
     parser.add_argument("--workspace")
     parser.add_argument("--config", help="Method config, workflow, or runtime config directory")
     parser.add_argument("--repo", help="External Method checkout, such as ai_trade")
@@ -136,7 +136,7 @@ def register_method_commands(commands: argparse._SubParsersAction[argparse.Argum
     method_commands = methods.add_subparsers(dest="method_command", required=True)
 
     list_command = method_commands.add_parser("list", help="List the Method capability matrix")
-    list_command.add_argument("--mode", choices=[mode.value for mode in ExecutionMode])
+    list_command.add_argument("--mode", choices=ExecutionMode.cli_values())
     list_command.set_defaults(handler=_cmd_list)
 
     show_command = method_commands.add_parser("show", help="Show one Method capability declaration")

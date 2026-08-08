@@ -14,7 +14,11 @@ paper/runtime 安全门禁和只读 Streamlit 仪表盘。
 
 [打开只读可视化网站](https://quant-bench-showcase.streamlit.app/)，可以查看 16 个公开运行、15 个方法身份的归一化收益曲线、BTC 买入并持有对照、回撤、信号、执行聚合、方法说明和数据质量状态。
 
-当前公开数据全部来自 OKX demo，对应库中的 `simulated` 模式。它与本地 `paper` 账本和实盘交易是三个独立边界。网站只读取延迟、脱敏后的公共快照，不能查询账户或提交订单。所有时间序列从 `2026-06-01 00:00 UTC` 展示，agent 方法从 6 月 4 日的首个真实观测点开始，起点前不生成补线。
+当前公开数据全部来自 OKX demo，对应库中的 `exchange-paper` 模式。它与本地 `local-paper` 账本和实盘交易是三个独立边界。网站只读取延迟、脱敏后的公共快照，不能查询账户或提交订单。所有时间序列从 `2026-06-01 00:00 UTC` 展示，agent 方法从 6 月 4 日的首个真实观测点开始，起点前不生成补线。
+
+当前公开评估总范围为 ADA、BTC、DOGE、ETH、HBAR、LINK、LTC、OKB、TRX、XRP。传统 ML 与 FinGPT 使用这 10 个币的 USDT 现货符号，MacroHFT v1 使用 ETH-USDT，Benchmark DeepSeek、Benchmark Qwen、FinAgent DeepSeek 与 TradingAgents 使用 BTC，FinMem 分别公开 BTC 和 ETH 运行。网站的策略详情会列出每个运行的精确资产范围。
+
+![Awesome TradingAI 公开结果总览](docs/assets/public-showcase-overview.jpg)
 
 ## 功能
 
@@ -104,12 +108,11 @@ quant-bench methods check canonical:crypto_smoke_v1 \
 | 模式 | 含义 |
 | --- | --- |
 | `backtest` | 不访问交易账户的历史或合成数据研究 |
-| `paper` | 只使用本地账本，不向交易所提交订单 |
-| `simulated` | 交易所模拟环境，需要显式网络、凭据和确认门禁 |
+| `local-paper` | 只使用本地账本，不向交易所提交订单 |
+| `exchange-paper` | 交易所模拟环境，需要显式网络、凭据和确认门禁 |
 | `live` | 实盘环境，订单权限独立，并要求 `LIVE_ORDERS` 确认 |
 
-每种方法支持的模式不同，运行前使用 `methods show` 和 `methods check` 核对。
-外部 `ai_trade` 方法保持独立进程边界，需要用户提供经过审查的本地 checkout。
+每种方法支持的模式不同。`methods show` 展示方法声明的模式、频率和网络、账户、订单能力。`methods check` 只校验已声明的本地前置条件并输出脱敏命令预览，不访问网络、查询账户、提交订单，也不证明远端服务当前可用。外部 `ai_trade` 方法保持独立进程边界，需要用户提供经过审查的本地 checkout。
 
 ## 公开接口
 

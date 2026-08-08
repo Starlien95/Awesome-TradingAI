@@ -9,7 +9,8 @@ implementation and an execution mode. Existing `run`, `qlib`, `fingpt`,
 ```bash
 quant-bench methods list
 quant-bench methods list --mode backtest
-quant-bench methods list --mode simulated
+quant-bench methods list --mode local-paper
+quant-bench methods list --mode exchange-paper
 quant-bench methods list --mode live
 quant-bench methods show finagent
 ```
@@ -33,8 +34,13 @@ The current catalog covers:
 - ai_trade benchmark DeepSeek, benchmark Qwen, FinAgent, and TradingAgents.
 
 FinAgent intentionally declares `backtest=1d` and
-`paper/simulated/live=4h`. Its existing historical engine is daily; the
+`local-paper/exchange-paper/live=4h`. Its existing historical engine is daily; the
 unified interface does not relabel it as a 4H backtest.
+
+The public canonical names are `local-paper` for a local ledger and
+`exchange-paper` for an exchange-provided paper environment. The legacy input
+values `paper` and `simulated` remain accepted as compatibility aliases and
+are normalized to the canonical names in specs, descriptors, and run records.
 
 ## Check before running
 
@@ -90,7 +96,7 @@ Every invocation writes:
 those artifacts instead of rewriting their scientific contents. A
 `latest.json` pointer record is maintained per Method.
 
-## Simulated and live modes
+## Exchange-paper and live modes
 
 Order-capable Methods require all of the following:
 
@@ -98,20 +104,23 @@ Order-capable Methods require all of the following:
 - `--allow-network`;
 - `--execute-orders`;
 - the exact mode token:
-  - simulated: `SIMULATED_ORDERS`;
+  - exchange-paper: `EXCHANGE_PAPER_ORDERS`;
   - live: `LIVE_ORDERS`.
 
-Example single-cycle simulated check:
+The exchange provider still receives its native `demo` or `simulated` flag
+internally. That provider-level value is not the public Method mode name.
+
+Example single-cycle exchange-paper check:
 
 ```bash
 quant-bench methods check benchmark_deepseek \
-  --mode simulated \
+  --mode exchange-paper \
   --repo /srv/ai_trade \
   --workspace ./qb-workspace \
   --once \
   --allow-network \
   --execute-orders \
-  --confirm SIMULATED_ORDERS
+  --confirm EXCHANGE_PAPER_ORDERS
 ```
 
 Replace `check` with `run` only after reviewing the command and account

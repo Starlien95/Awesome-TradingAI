@@ -8,7 +8,7 @@ Run `quant-bench <command> --help` for the authoritative options.
 methods list       complete Method x mode capability matrix
 methods show       one Method descriptor, including mode-specific frequencies
 methods check      local readiness and redacted command preview
-methods run        unified backtest, paper, simulated, or live invocation
+methods run        unified backtest, local-paper, exchange-paper, or live invocation
 methods status     latest durable Method Run plus adapter-native status
 ```
 
