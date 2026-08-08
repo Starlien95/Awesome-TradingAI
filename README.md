@@ -6,7 +6,7 @@
 
 [Documentation](docs/index.md) | [CLI reference](docs/reference/cli.md)
 
-*A unified benchmark for evaluating AI trading methods from historical backtesting to real-time paper trading and live trading.*
+*Benchmarking AI trading from historical backtests to real-time markets.*
 
 [![Exchange paper trading](https://img.shields.io/badge/Exchange%20Paper%20Trading-Visualization-brightgreen.svg)](https://quant-bench-showcase.streamlit.app/)
 [![CI](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml)
