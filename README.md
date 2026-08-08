@@ -197,7 +197,7 @@ production logs are excluded from this repository.
 
 ## Safety and Scope
 
-- Research and dashboard commands do not place orders.
+- Backtesting, analysis, and dashboard commands do not submit orders to an exchange.
 - Credentials come from environment variables or an untracked local provider.
 - Account reads and order writes use separate permissions.
 - Demo and live orders require different exact confirmation tokens.
