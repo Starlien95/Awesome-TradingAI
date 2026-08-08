@@ -1,18 +1,24 @@
 <div align="center">
 
-<img src="assets/banner.png" alt="Can AI Make Money in Crypto?" width="650">
+<img src="assets/banner.png" alt="Can AI Make Money in Crypto?" width="700">
 
-[简体中文](README.zh-CN.md)
+<br>
 
-[Documentation](docs/index.md) | [CLI reference](docs/reference/cli.md)
+**A unified benchmark for evaluating AI trading methods from historical backtesting to real-time markets.**
 
-*Benchmarking AI trading from historical backtests to real-time markets.*
+<br>
 
-[![Exchange paper trading](https://img.shields.io/badge/Exchange%20Paper%20Trading-Visualization-brightgreen.svg)](https://quant-bench-showcase.streamlit.app/)
-[![CI](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml)
-[![Python](https://img.shields.io/badge/python-3.10--3.12-blue.svg)](pyproject.toml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[**Live Results**](https://quant-bench-showcase.streamlit.app/) ·
+[**Documentation**](docs/index.md) ·
+[**CLI Reference**](docs/reference/cli.md) ·
+[**简体中文**](README.zh-CN.md)
+
 <br><br>
+
+[![Exchange Paper Trading](https://img.shields.io/badge/Exchange%20Paper%20Trading-Live%20Results-brightgreen.svg)](https://quant-bench-showcase.streamlit.app/)
+[![CI](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml)
+[![Python](https://img.shields.io/badge/Python-3.10--3.12-blue.svg)](pyproject.toml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 </div>
 
