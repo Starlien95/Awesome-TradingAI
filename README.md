@@ -20,7 +20,7 @@
 
 **Can AI Make Money in Crypto?** is an open-source benchmark and codebase for evaluating various AI for trading methods, including machine learning, reinforcement learning, LLM, and agent-based trading methods. It provides unified interfaces for historical backtesting and real-time paper trading on cryptocurrency exchanges, while continuously presenting backtest, live paper-trading results, and real-money trading results.
 
-## Public Demo Results
+## Real-time Paper-Trading Results
 
 [Open the public results dashboard](https://quant-bench-showcase.streamlit.app/) to explore normalized return curves, comparisons with BTC Buy & Hold, drawdowns, trading signals, execution summaries, method details, and data-quality status across 16 public runs covering 15 distinct methods.
 
