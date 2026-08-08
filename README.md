@@ -25,7 +25,7 @@
 
 The public results currently use the OKX Demo Trading environment, corresponding to the library's `exchange-paper` mode. This mode is distinct from both local `local-paper` execution and real-money `live` trading. The dashboard operates in read-only mode using delayed and sanitized result snapshots; it cannot access exchange accounts, read trading credentials, or submit orders.
 
-The evaluation period begins at `2026-06-01 00:00 UTC` for all methods except the multi-agent approaches, which begin at `2026-06-04 00:00 UTC`. Results are reported only from each method's actual start time, with no synthetic backfilling applied to earlier periods.
+The evaluation period begins at `2026-06-01 00:00 UTC+8` for all methods except the multi-agent approaches, which begin at `2026-06-04 00:00 UTC+8`. Results are reported only from each method's actual start time, with no synthetic backfilling applied to earlier periods.
 
 
 
