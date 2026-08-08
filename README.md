@@ -8,7 +8,7 @@
 
 <br>
 
-[**Live Results**](https://quant-bench-showcase.streamlit.app/) ·
+[**Real-time Paper Trading Results**](https://quant-bench-showcase.streamlit.app/) ·
 [**Documentation**](docs/index.md) ·
 [**CLI Reference**](docs/reference/cli.md) ·
 [**简体中文**](README.zh-CN.md)
