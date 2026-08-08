@@ -25,7 +25,7 @@
 
 **Can AI Make Money in Crypto?** is an open-source benchmark and codebase for evaluating AI trading methods in cryptocurrency markets, including machine learning, reinforcement learning, LLM-based methods, and trading agents. It provides unified interfaces for historical backtesting, real-time paper trading on cryptocurrency exchanges, and live trading, while continuously publishing backtest and paper-trading results. Real-money trading results will be added in future evaluations.
 
-## Real-time Exchange Paper-Trading Results
+## 📈 Real-time Exchange Paper-Trading Results
 
 [Open the public results dashboard](https://quant-bench-showcase.streamlit.app/) to explore normalized return curves, comparisons with BTC Buy & Hold, drawdowns, trading signals, execution summaries, method details, and data-quality status across 16 public runs covering 15 distinct methods.
 
@@ -39,14 +39,14 @@ The evaluation period begins at `2026-06-01 00:00 UTC+08:00` for all methods exc
 - **[Aug. 6, 2026]** Full benchmark codebase released.
 - **[Coming Soon]** Real-money live trading evaluation.
 
-## Why This Benchmark?
+## 🎯 Why This Benchmark?
 
 Most AI trading methods are evaluated only through historical backtesting. However, strong backtest performance does not necessarily translate into profits in unseen and continuously evolving markets. We evaluate trading methods across three stages: Historical Backtesting → Real-Time Paper Trading → Live Trading. Our goal is to answer a simple question: 
 
 *Can AI actually make money in crypto?*
 
 
-## Supported Methods & Features
+## 🧩 Supported Methods & Features
 
 The repository provides a unified framework for integrating, running, and evaluating AI trading methods across different methodological paradigms, from traditional machine learning to LLM-based trading agents.
 
@@ -162,7 +162,7 @@ Execution capabilities vary across methods. Use `methods show` to inspect the ex
 
 > **Note:** The project is hosted in the `Awesome-TradingAI` repository. For backward compatibility, the Python distribution and CLI retain the names `quant-bench` and `quant_bench`.
 
-## Public Interfaces
+## 🔌 Public Interfaces
 
 - [Python API](docs/reference/python-api.md)
 - [CLI](docs/reference/cli.md)
@@ -179,7 +179,7 @@ The repository name is `Awesome TradingAI`. The stable distribution, import,
 CLI and plugin namespaces remain `quant-bench` and `quant_bench` for API
 compatibility.
 
-## Repository Map
+## 🗂️ Repository Map
 
 ```text
 src/quant_bench/    installable library, CLI, methods, runtime and dashboard
@@ -194,7 +194,7 @@ Runtime data belongs in a user-selected workspace. Model weights, exchange
 credentials, account snapshots, orders, private news, Qlib stores and complete
 production logs are excluded from this repository.
 
-## Safety and Scope
+## 🛡️ Safety and Scope
 
 - Backtesting, analysis, and dashboard commands do not submit orders to an exchange.
 - Credentials come from environment variables or an untracked local provider.
@@ -206,7 +206,7 @@ production logs are excluded from this repository.
 Read [Security boundaries](docs/concepts/security-boundaries.md) before enabling
 network, account or order capabilities.
 
-## Development and Quality Checks
+## 🛠️ Development and Quality Checks
 
 Install the development dependencies and run the same linting, static type checking, testing, documentation build, and release-boundary checks used by CI:
 
@@ -224,6 +224,6 @@ For contribution guidelines, security policies, and third-party provenance, see 
 The project is licensed under the MIT License. Bundled third-party components remain subject to their respective notices and license terms.
 
 
-## Citation
+## 📖 Citation
 
 Citation information will be added upon publication.
