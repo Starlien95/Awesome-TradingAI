@@ -50,12 +50,11 @@ See [Historical backtest results](docs/HISTORICAL_BACKTEST_RESULTS.md) for the f
 
 The current public evaluation covers 10 cryptocurrencies in total: ADA, BTC, DOGE, ETH, HBAR, LINK, LTC, OKB, TRX, and XRP. Asset scope differs by method:
 
-| Public methods | Assets in the current public evaluation |
-| --- | --- |
-| Traditional ML and FinGPT Sentiment SFT | ADA-USDT, BTC-USDT, DOGE-USDT, ETH-USDT, HBAR-USDT, LINK-USDT, LTC-USDT, OKB-USDT, TRX-USDT, XRP-USDT |
-| MacroHFT v1 | ETH-USDT |
-| Benchmark DeepSeek, Benchmark Qwen, FinAgent DeepSeek, TradingAgents | BTC |
-| FinMem | Separate BTC and ETH runs |
+| Public methods                                               | Assets in the current public evaluation             |
+| ------------------------------------------------------------ | --------------------------------------------------- |
+| Traditional ML, FinGPT Sentiment SFT, Benchmark DeepSeek, Benchmark Qwen, FinAgent DeepSeek, TradingAgents | ADA, BTC, DOGE, ETH, HBAR, LINK, LTC, OKB, TRX, XRP |
+| MacroHFT v1                                                  | ETH                                                 |
+| FinMem                                                       | BTC                                                 |
 
 ## 🔥 News
 
