@@ -24,12 +24,29 @@ These are the workbook's reported best configurations. They do not establish exp
 | FinGPT Sentiment SFT | 2025, ETH-USDT | -9.17% | -11.57% | 0.18 | -48.62% | Threshold selected on 2024 and frozen for the 2025 test |
 | FinAgent Qwen | 2023-06-01 to 2023-12-31, BTCUSD | +48.93% | +57.67% | 2.08 | -14.79% | Completed, with lower raw return than buy-and-hold |
 | FinAgent DeepSeek | 2023-06-01 to 2023-12-31, BTCUSD | +36.51% | +57.67% | 1.62 | -12.27% | Completed, with lower raw return than buy-and-hold |
-| FinMem BTC | 2025, BTCUSD | -20.76% | -7.35% | -0.78 | -42.46% | Completed negative result |
-| FinMem ETH | 2025, ETHUSD | -27.72% | -11.57% | -0.69 | -44.17% | Completed negative result |
+| FinMem | 2025, BTCUSD | -20.76% | -7.35% | -0.78 | -42.46% | Completed negative result |
 | LLM daily-chat baseline | 2025 H1, BTC-USDT perpetual | -74.20% | +12.82% | N/A | -91.07% | Completed failed baseline with unacceptable risk |
 | TradingAgents | No completed historical artifact found | N/A | N/A | N/A | N/A | Recorded as an evidence gap |
 
-FinMem audit files store cumulative log reward. The total-return values above use `exp(cumulative_log_reward) - 1`, which is the conversion used by the supplied cumulative-profit curves.
+The FinMem BTC audit stores cumulative log reward. Its total return uses `exp(cumulative_log_reward) - 1`, matching the supplied cumulative-profit curve.
+
+## Evidence coverage and comparison rules
+
+| Evidence group | Public rows | Period | Asset scope | Reported return basis |
+| --- | ---: | --- | --- | --- |
+| Traditional ML workbook | 5 selected configurations | 2020-2025 | 10 cryptocurrencies | Annualized return |
+| FinGPT | 2 completed studies | 2022-2025 | ETH | Study-level total return |
+| FinAgent | 2 completed studies | 2023 | BTC | Study-level total return |
+| FinMem | 1 completed study | 2025 | BTC | Total return converted from cumulative log reward |
+| LLM baseline | 1 completed failed baseline | 2025 H1 | BTC perpetual | Study-level total return |
+| TradingAgents | Evidence gap | Not available | Not available | No completed artifact |
+
+The tables follow four selection rules:
+
+1. A numeric row requires a completed artifact with a defined end date.
+2. Each study keeps its native benchmark and return definition.
+3. Progress snapshots with different end dates are excluded from numeric comparison.
+4. Failed results and evidence gaps remain visible because they are part of the benchmark record.
 
 ## Exclusions and interpretation
 

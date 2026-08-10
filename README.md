@@ -27,7 +27,7 @@
 
 ## 📈 Public Exchange-Paper Results
 
-[Open the public results dashboard](https://quant-bench-showcase.streamlit.app/) to explore normalized return curves, comparisons with BTC Buy & Hold, drawdowns, trading signals, execution summaries, method details, and data-quality status across 16 public runs covering 15 distinct methods.
+[Open the public results dashboard](https://quant-bench-showcase.streamlit.app/) to explore normalized return curves, comparisons with BTC Buy & Hold, drawdowns, trading signals, execution summaries, method details, and data-quality status across 15 public runs covering 15 distinct methods.
 
 The public results currently use the OKX Demo Trading environment, corresponding to the library's `exchange-paper` mode. This mode is distinct from both local `local-paper` execution and real-money `live` trading. The dashboard operates in read-only mode using delayed and sanitized result snapshots; it cannot access exchange accounts, read trading credentials, or submit orders.
 
@@ -37,24 +37,14 @@ The public display window begins at `2026-06-01 00:00 UTC`. Each method is norma
 
 The overview shows the full public method set, a Top 5 comparison against BTC Buy & Hold, the return-sorted Leaderboard, and the union of public crypto assets. Open Strategy Detail in the site to inspect the exact asset symbols, timeframe, execution mode, methodology, and data window for each method.
 
-Selected historical evidence is kept separate from the live-updating exchange-paper table:
-
-| Historical study | Reported result | Interpretation |
-| --- | ---: | --- |
-| GATs, 4h / 52 features, 2020-2025 | 71.70% annualized; IR 1.27; max drawdown -33.97% | Representative ML workbook result |
-| FinGPT pretrained LoRA, ETH | +79.60% vs +29.37% buy-and-hold | Completed historical long/flat study |
-| FinAgent Qwen, BTC, 2023 stage | +48.93% vs +57.67% buy-and-hold | Positive return, lower than its benchmark |
-| LLM daily-chat BTC perpetual baseline, 2025 H1 | -74.20%; max drawdown -91.07% | Completed failed baseline retained for transparency |
-
-See [Historical backtest results](docs/HISTORICAL_BACKTEST_RESULTS.md) for the full curated tables, FinMem results, missing TradingAgents evidence, and interpretation limits.
-
 The current public evaluation covers 10 cryptocurrencies in total: ADA, BTC, DOGE, ETH, HBAR, LINK, LTC, OKB, TRX, and XRP. Asset scope differs by method:
 
-| Public methods                                               | Assets in the current public evaluation             |
-| ------------------------------------------------------------ | --------------------------------------------------- |
-| Traditional ML, FinGPT Sentiment SFT, Benchmark DeepSeek, Benchmark Qwen, FinAgent DeepSeek, TradingAgents | ADA, BTC, DOGE, ETH, HBAR, LINK, LTC, OKB, TRX, XRP |
-| MacroHFT v1                                                  | ETH                                                 |
-| FinMem                                                       | BTC                                                 |
+| Public methods | Assets in the current public evaluation |
+| --- | --- |
+| Traditional ML, FinGPT Sentiment SFT | ADA, BTC, DOGE, ETH, HBAR, LINK, LTC, OKB, TRX, XRP |
+| Benchmark DeepSeek, Benchmark Qwen, FinAgent DeepSeek, TradingAgents | BTC |
+| MacroHFT v1 | ETH |
+| FinMem | BTC |
 
 ## 🔥 News
 
@@ -67,6 +57,25 @@ The current public evaluation covers 10 cryptocurrencies in total: ADA, BTC, DOG
 Most AI trading methods are evaluated only through historical backtesting. However, strong backtest performance does not necessarily translate into profits in unseen and continuously evolving markets. We evaluate trading methods across three stages: Historical Backtesting → Real-Time Paper Trading → Live Trading. Our goal is to answer a simple question: 
 
 *Can AI actually make money in crypto?*
+
+## 📊 Historical Backtest Evidence
+
+Historical studies are shown after the exchange-paper results because they answer a different question. Their periods, assets, execution rules, and return definitions differ, so the rows below are not a cross-method ranking.
+
+| Historical study | Period / assets | Strategy result | Native benchmark | Risk or evidence note |
+| --- | --- | ---: | ---: | --- |
+| GATs, 4h / 52 features | 2020-2025, 10 cryptocurrencies | 71.70% annualized | N/A | IR 1.27; max drawdown -33.97% |
+| TCN, 1h / OHLCV | 2020-2025, 10 cryptocurrencies | 62.94% annualized | N/A | IR 1.31; max drawdown -29.10% |
+| XGBoost, 4h / 52 features | 2020-2025, 10 cryptocurrencies | 41.93% annualized | N/A | IR 0.87; max drawdown -42.42% |
+| FinGPT pretrained LoRA | 2022-06 to 2024-01, ETH | +79.60% | +29.37% | Sharpe 0.98; max drawdown -38.00% |
+| FinGPT Sentiment SFT | 2025, ETH | -9.17% | -11.57% | Threshold selected on 2024 and frozen for 2025 |
+| FinAgent Qwen | 2023-06 to 2023-12, BTC | +48.93% | +57.67% | Positive return, below buy-and-hold |
+| FinAgent DeepSeek | 2023-06 to 2023-12, BTC | +36.51% | +57.67% | Sharpe 1.62; max drawdown -12.27% |
+| FinMem | 2025, BTC | -20.76% | -7.35% | Completed negative result |
+| LLM daily-chat baseline | 2025 H1, BTC perpetual | -74.20% | +12.82% | Failed baseline; max drawdown -91.07% |
+| TradingAgents | Historical archive | N/A | N/A | No completed historical artifact found |
+
+The public site keeps these studies on a separate Historical Backtests page and preserves failed or missing evidence. See [Historical backtest results](docs/HISTORICAL_BACKTEST_RESULTS.md) for protocol details, additional ML configurations, selection rules, and interpretation limits.
 
 
 ## 🧩 Supported Methods & Features
