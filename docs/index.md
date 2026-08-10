@@ -13,6 +13,7 @@ Choose the path that matches the work you are doing.
 - [Prepare market data](how-to/data.md)
 - [Add a model plugin](how-to/add-model.md)
 - [Inspect, compare, and report results](how-to/results.md)
+- [Historical backtest results](HISTORICAL_BACKTEST_RESULTS.md)
 - [Configure paper, demo, and live runtime modes](how-to/runtime.md)
 - [Select any Method and execution mode](how-to/unified-methods.md)
 - [Use the unified trading interface](how-to/unified-trading-interface.md)

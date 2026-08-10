@@ -21,6 +21,7 @@ nav:
       - Prepare data: how-to/data.md
       - Add a model: how-to/add-model.md
       - Results: how-to/results.md
+      - Historical backtest results: HISTORICAL_BACKTEST_RESULTS.md
       - Runtime modes: how-to/runtime.md
   - Concepts:
       - Reproducibility: concepts/reproducibility.md

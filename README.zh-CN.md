@@ -20,6 +20,17 @@ paper/runtime 安全门禁和只读 Streamlit 仪表盘。
 
 ![Awesome TradingAI 公开结果总览](docs/assets/public-showcase-overview.jpg)
 
+历史研究结果与持续更新的交易所 paper 排行榜分开呈现：
+
+| 历史研究 | 报告结果 | 解读 |
+| --- | ---: | --- |
+| GATs，4h / 52 features，2020-2025 | 年化 71.70%；IR 1.27；最大回撤 -33.97% | 机器学习工作簿代表结果 |
+| FinGPT pretrained LoRA，ETH | +79.60%，买入并持有 +29.37% | 已完成的历史多头 / 空仓研究 |
+| FinAgent Qwen，BTC，2023 阶段 | +48.93%，买入并持有 +57.67% | 收益为正，低于对应基准 |
+| LLM daily-chat BTC 永续基线，2025 上半年 | -74.20%；最大回撤 -91.07% | 为保持透明而保留的已完成失败基线 |
+
+完整精选表、FinMem 结果、TradingAgents 证据缺口和解读边界见[历史回测结果](docs/HISTORICAL_BACKTEST_RESULTS.md)。
+
 ## 功能
 
 | 范围 | 已实现功能 |

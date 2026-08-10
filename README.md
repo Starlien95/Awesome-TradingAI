@@ -37,6 +37,17 @@ The public display window begins at `2026-06-01 00:00 UTC`. Each method is norma
 
 The overview shows the full public method set, a Top 5 comparison against BTC Buy & Hold, the return-sorted Leaderboard, and the union of public crypto assets. Open Strategy Detail in the site to inspect the exact asset symbols, timeframe, execution mode, methodology, and data window for each method.
 
+Selected historical evidence is kept separate from the live-updating exchange-paper table:
+
+| Historical study | Reported result | Interpretation |
+| --- | ---: | --- |
+| GATs, 4h / 52 features, 2020-2025 | 71.70% annualized; IR 1.27; max drawdown -33.97% | Representative ML workbook result |
+| FinGPT pretrained LoRA, ETH | +79.60% vs +29.37% buy-and-hold | Completed historical long/flat study |
+| FinAgent Qwen, BTC, 2023 stage | +48.93% vs +57.67% buy-and-hold | Positive return, lower than its benchmark |
+| LLM daily-chat BTC perpetual baseline, 2025 H1 | -74.20%; max drawdown -91.07% | Completed failed baseline retained for transparency |
+
+See [Historical backtest results](docs/HISTORICAL_BACKTEST_RESULTS.md) for the full curated tables, FinMem results, missing TradingAgents evidence, and interpretation limits.
+
 The current public evaluation covers 10 cryptocurrencies in total: ADA, BTC, DOGE, ETH, HBAR, LINK, LTC, OKB, TRX, and XRP. Asset scope differs by method:
 
 | Public methods | Assets in the current public evaluation |
