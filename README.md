@@ -29,9 +29,7 @@
 
 [Open the public results dashboard](https://quant-bench-showcase.streamlit.app/) to explore normalized return curves, comparisons with BTC Buy & Hold, drawdowns, trading signals, execution summaries, method details, and data-quality status across 15 public runs covering 15 distinct methods.
 
-The public results currently use the OKX Demo Trading environment, corresponding to the library's `exchange-paper` mode. This mode is distinct from both local `local-paper` execution and real-money `live` trading. The dashboard operates in read-only mode using delayed and sanitized result snapshots; it cannot access exchange accounts, read trading credentials, or submit orders.
-
-The public display window begins at `2026-06-01 00:00 UTC`. Each method is normalized at its first real observation on or after that boundary. The multi-agent run begins at its first real observation on June 4, so the earlier interval remains empty with no synthetic backfilling.
+The public results currently use the OKX Demo Trading environment, corresponding to the library's `exchange-paper` mode. This mode is distinct from both local `local-paper` execution and real-money `live` trading. The public display window begins at `2026-06-01 00:00 UTC`. Each method is normalized at its first real observation on or after that boundary. The multi-agent run begins at its first real observation on June 4, so the earlier interval remains empty with no synthetic backfilling.
 
 ![Awesome TradingAI public showcase overview](docs/assets/public-showcase-overview.jpg)
 
