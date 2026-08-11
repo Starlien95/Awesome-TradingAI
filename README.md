@@ -40,7 +40,7 @@ The current public evaluation covers 10 cryptocurrencies in total: BTC, ETH, DOG
 | Public methods | Assets in the current public evaluation |
 | --- | --- |
 | Traditional ML, FinGPT Sentiment SFT | BTC, ETH, DOGE, OKB, XRP, ADA, TRX, HBAR, LINK and LTC |
-| DeepSeek, Qwen, FinAgent, TradingAgents | BTC |
+| DeepSeek, Qwen, FinAgent, TradingAgents | BTC, ETH, DOGE, SOL |
 | MacroHFT | ETH |
 | FinMem | BTC |
 
