@@ -65,15 +65,20 @@ Historical studies are shown after the exchange-paper results because they answe
 | GATs, 4h / 52 features | 2020-2025, 10 cryptocurrencies | 71.70% annualized | N/A | IR 1.27; max drawdown -33.97% |
 | TCN, 1h / OHLCV | 2020-2025, 10 cryptocurrencies | 62.94% annualized | N/A | IR 1.31; max drawdown -29.10% |
 | XGBoost, 4h / 52 features | 2020-2025, 10 cryptocurrencies | 41.93% annualized | N/A | IR 0.87; max drawdown -42.42% |
+| DoubleEnsemble, 15m / 52 features | 2020-2025, 10 cryptocurrencies | 37.48% annualized | N/A | IR 0.84; max drawdown -48.39% |
+| TabNet, 15m / 52 features | 2020-2025, 10 cryptocurrencies | 34.52% annualized | N/A | IR 1.03; max drawdown -32.67% |
+| LSTM, 4h / 52 features | 2020-2025, 10 cryptocurrencies | 32.90% annualized | N/A | IR 0.66; max drawdown -44.07% |
+| MLP, 1h / 52 features | 2020-2025, 10 cryptocurrencies | 30.33% annualized | N/A | IR 0.87; max drawdown -35.24% |
+| TRA, 4h / 52 features | 2020-2025, 10 cryptocurrencies | 25.08% annualized | N/A | IR 0.44; max drawdown -52.94% |
 | FinGPT pretrained LoRA | 2022-06 to 2024-01, ETH | +79.60% | +29.37% | Sharpe 0.98; max drawdown -38.00% |
-| FinGPT Sentiment SFT | 2025, ETH | -9.17% | -11.57% | Threshold selected on 2024 and frozen for 2025 |
+| FinGPT | 2025, ETH | -9.17% | -11.57% | 35 trades; threshold selected on 2024 and frozen for 2025 |
 | FinAgent Qwen | 2023-06 to 2023-12, BTC | +48.93% | +57.67% | Positive return, below buy-and-hold |
-| FinAgent DeepSeek | 2023-06 to 2023-12, BTC | +36.51% | +57.67% | Sharpe 1.62; max drawdown -12.27% |
-| FinMem | 2025, BTC | -20.76% | -7.35% | Completed negative result |
-| LLM daily-chat baseline | 2025 H1, BTC perpetual | -74.20% | +12.82% | Failed baseline; max drawdown -91.07% |
+| FinAgent | 2023-06 to 2023-12, BTC | +36.51% | +57.67% | Sharpe 1.62; Sortino 2.15; max drawdown -12.27% |
+| FinMem | 2025, BTC | -20.76% | -7.35% | 210 active signals; max drawdown -42.46% |
+| LLM daily-chat baseline | 2025 H1, BTC perpetual | -74.20% | +12.82% | 31 closed trades; failed baseline; max drawdown -91.07% |
 | TradingAgents | Historical archive | N/A | N/A | No completed historical artifact found |
 
-The public site keeps these studies on a separate Historical Backtests page and preserves failed or missing evidence. See [Historical backtest results](docs/HISTORICAL_BACKTEST_RESULTS.md) for protocol details, additional ML configurations, selection rules, and interpretation limits.
+The full record contains 24 machine-learning configurations. It also retains a completed two-month exploratory LLM run, four interrupted annual LLM runs, and two FinAgent progress snapshots in a separate non-comparable table. The public site keeps the same evidence on its Historical Backtests page. See [Historical backtest results](docs/HISTORICAL_BACKTEST_RESULTS.md) for all rows, protocol details, selection rules, and interpretation limits.
 
 
 ## 🧩 Supported Methods & Features
