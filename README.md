@@ -35,12 +35,12 @@ The public results currently use the OKX Demo Trading environment, corresponding
 
 The overview shows the full public method set, a Top 5 comparison against BTC Buy & Hold, the return-sorted Leaderboard, and the union of public crypto assets. Open Strategy Detail in the site to inspect the exact asset symbols, timeframe, execution mode, methodology, and data window for each method.
 
-The current public evaluation covers 10 cryptocurrencies in total: BTC, ETH, DOGE, OKB, XRP, ADA, TRX, HBAR, LINK, SOL and LTC. Asset scope differs by method:
+The current public evaluation covers 11 cryptocurrencies in total: ADA, BTC, DOGE, ETH, HBAR, LINK, LTC, OKB, SOL, TRX, and XRP. Asset scope differs by method:
 
 | Public methods | Assets in the current public evaluation |
 | --- | --- |
-| Traditional ML, FinGPT Sentiment SFT | BTC, ETH, DOGE, OKB, XRP, ADA, TRX, HBAR, LINK and LTC |
-| DeepSeek, Qwen, FinAgent, TradingAgents | BTC, ETH, DOGE, SOL |
+| Machine Learning (ML), FinGPT | ADA, BTC, DOGE, ETH, HBAR, LINK, LTC, OKB, TRX, XRP |
+| Deepseek Benchmark, Qwen Benchmark, FinAgent, TradingAgents | BTC, DOGE, ETH, SOL |
 | MacroHFT | ETH |
 | FinMem | BTC |
 

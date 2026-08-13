@@ -37,13 +37,13 @@
 
 总览页面展示了全部公开方法、表现最佳的 5 种方法与 BTC 买入并持有策略的对比、按收益排序的排行榜，以及所有公开方法涉及的加密资产集合。在网站中打开 Strategy Detail（策略详情），可以查看各方法的确切资产代码、时间周期、执行模式、方法说明和数据窗口。
 
-当前公开评测共覆盖 10 种加密货币：ADA、BTC、DOGE、ETH、HBAR、LINK、LTC、OKB、TRX 和 XRP。不同方法的资产范围有所不同：
+当前公开评测共覆盖 11 种加密货币：ADA、BTC、DOGE、ETH、HBAR、LINK、LTC、OKB、SOL、TRX 和 XRP。不同方法的资产范围有所不同：
 
 | 公开方法 | 当前公开评测中的资产 |
 | --- | --- |
-| Traditional ML、FinGPT Sentiment SFT | ADA、BTC、DOGE、ETH、HBAR、LINK、LTC、OKB、TRX、XRP |
-| Benchmark DeepSeek、Benchmark Qwen、FinAgent DeepSeek、TradingAgents | BTC |
-| MacroHFT v1 | ETH |
+| 机器学习（ML）、FinGPT | ADA、BTC、DOGE、ETH、HBAR、LINK、LTC、OKB、TRX、XRP |
+| Deepseek Benchmark、Qwen Benchmark、FinAgent、TradingAgents | BTC、DOGE、ETH、SOL |
+| MacroHFT | ETH |
 | FinMem | BTC |
 
 ## 🔥 最新动态
