@@ -210,7 +210,7 @@ Execution capabilities vary across methods. Use `methods show` to inspect a meth
 - [Repository layout](docs/REPOSITORY_LAYOUT.md)
 - [Environment requirements](docs/ENVIRONMENT.md)
 
-The repository name is `Awesome TradingAI`. The stable distribution, import,
+The repository name is `Awesome-TradingAI`. The stable distribution, import,
 CLI and plugin namespaces remain `quant-bench` and `quant_bench` for API
 compatibility.
 
