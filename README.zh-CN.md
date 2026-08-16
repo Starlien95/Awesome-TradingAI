@@ -9,14 +9,14 @@
 
 
 
-[**模拟交易**](https://quant-bench-showcase.streamlit.app/) ·
+[**模拟交易**](https://awesome-tradingai.streamlit.app/) ·
 [**文档**](docs/index.md) ·
 [**CLI 参考**](docs/reference/cli.md) ·
 [**English**](README.md)
 
 
 
-[![交易所模拟交易](https://img.shields.io/badge/Exchange%20Paper%20Trading-Live%20Results-brightgreen.svg)](https://quant-bench-showcase.streamlit.app/)
+[![交易所模拟交易](https://img.shields.io/badge/Exchange%20Paper%20Trading-Live%20Results-brightgreen.svg)](https://awesome-tradingai.streamlit.app/)
 [![CI](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/Python-3.10--3.12-blue.svg)](pyproject.toml)
 [![许可证：MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -27,7 +27,7 @@
 
 ## 📈 公开的交易所模拟交易结果
 
-[打开公开结果面板](https://quant-bench-showcase.streamlit.app/)，可查看 15 个公开运行（覆盖 15 种不同方法）的归一化收益曲线、与 BTC 买入并持有策略的对比、回撤、交易信号、执行摘要、方法详情以及数据质量状态。
+[打开公开结果面板](https://awesome-tradingai.streamlit.app/)，可查看 15 个公开运行（覆盖 15 种不同方法）的归一化收益曲线、与 BTC 买入并持有策略的对比、回撤、交易信号、执行摘要、方法详情以及数据质量状态。
 
 目前的公开结果使用 OKX 模拟盘交易环境，对应本项目的 `exchange-paper` 模式。
 
@@ -35,14 +35,14 @@
 
 ![Awesome TradingAI 公开展示总览](docs/assets/public-showcase-overview.jpg)
 
-总览页面展示了全部公开方法、表现最佳的 5 种方法与 BTC 买入并持有策略的对比、按收益排序的排行榜，以及所有公开方法涉及的加密资产集合。在网站中打开 Strategy Detail（策略详情），可以查看各方法的确切资产代码、时间周期、执行模式、方法说明和数据窗口。
+总览页面展示全部公开方法、最终 Alpha 最高的 5 种方法、按 Alpha 排序的排行榜，以及所有公开方法涉及的加密资产集合。计算每种方法的 Alpha 时，方法收益和 BTC 参考收益都在该方法的首个真实观测点归零。前五方法图只显示 Alpha 曲线。在网站中打开 Strategy Detail（策略详情），可以查看各方法的确切资产代码、时间周期、执行模式、方法说明和数据窗口。
 
 当前公开评测共覆盖 10 种加密货币：ADA、BTC、DOGE、ETH、HBAR、LINK、LTC、OKB、TRX 和 XRP。不同方法的资产范围有所不同：
 
 | 公开方法 | 当前公开评测中的资产 |
 | --- | --- |
 | 机器学习（ML）、FinGPT | ADA、BTC、DOGE、ETH、HBAR、LINK、LTC、OKB、TRX、XRP |
-| Deepseek Benchmark、Qwen Benchmark、FinAgent、TradingAgents | BTC |
+| Deepseek、Qwen、FinAgent、TradingAgents | BTC |
 | MacroHFT | ETH |
 | FinMem | BTC |
 

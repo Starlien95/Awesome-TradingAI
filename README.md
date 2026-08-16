@@ -8,14 +8,14 @@
 
 
 
-[**Paper Trading**](https://quant-bench-showcase.streamlit.app/) ·
+[**Paper Trading**](https://awesome-tradingai.streamlit.app/) ·
 [**Documentation**](docs/index.md) ·
 [**CLI Reference**](docs/reference/cli.md) ·
 [**简体中文**](README.zh-CN.md)
 
 
 
-[![Exchange Paper Trading](https://img.shields.io/badge/Exchange%20Paper%20Trading-Live%20Results-brightgreen.svg)](https://quant-bench-showcase.streamlit.app/)
+[![Exchange Paper Trading](https://img.shields.io/badge/Exchange%20Paper%20Trading-Live%20Results-brightgreen.svg)](https://awesome-tradingai.streamlit.app/)
 [![CI](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Starlien95/Awesome-TradingAI/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/Python-3.10--3.12-blue.svg)](pyproject.toml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -27,20 +27,20 @@
 
 ## 📈 Public Exchange-Paper Results
 
-[Open the public results dashboard](https://quant-bench-showcase.streamlit.app/) to explore normalized return curves, comparisons with BTC Buy & Hold, drawdowns, trading signals, execution summaries, method details, and data-quality status across 15 public runs covering 15 distinct methods.
+[Open the public results dashboard](https://awesome-tradingai.streamlit.app/) to explore normalized return curves, comparisons with BTC Buy & Hold, drawdowns, trading signals, execution summaries, method details, and data-quality status across 15 public runs covering 15 distinct methods.
 
 The public results currently use the OKX Demo Trading environment, corresponding to the library's `exchange-paper` mode. This mode is distinct from both local `local-paper` execution and real-money `live` trading. The public display window begins at `2026-06-01 00:00 UTC`. Each method is normalized at its first real observation on or after that boundary. The multi-agent run begins at its first real observation on June 4, so the earlier interval remains empty with no synthetic backfilling.
 
 ![Awesome TradingAI public showcase overview](docs/assets/public-showcase-overview.jpg)
 
-The overview shows the full public method set, a Top 5 comparison against BTC Buy & Hold, the return-sorted Leaderboard, and the union of public crypto assets. Open Strategy Detail in the site to inspect the exact asset symbols, timeframe, execution mode, methodology, and data window for each method.
+The overview shows the full public method set, the five methods with the highest final Alpha, an Alpha-sorted Leaderboard, and the union of public crypto assets. For each method, both the method return and BTC reference return are reset to 0 at that method's first real observation before Alpha is calculated. The Top 5 chart displays Alpha only. Open Strategy Detail in the site to inspect the exact asset symbols, timeframe, execution mode, methodology, and data window for each method.
 
 The current public evaluation covers 10 cryptocurrencies in total: ADA, BTC, DOGE, ETH, HBAR, LINK, LTC, OKB, TRX, and XRP. Asset scope differs by method:
 
 | Public methods | Assets in the current public evaluation |
 | --- | --- |
 | Machine Learning (ML), FinGPT | ADA, BTC, DOGE, ETH, HBAR, LINK, LTC, OKB, TRX, XRP |
-| Deepseek Benchmark, Qwen Benchmark, FinAgent, TradingAgents | BTC |
+| Deepseek, Qwen, FinAgent, TradingAgents | BTC |
 | MacroHFT | ETH |
 | FinMem | BTC |
 
