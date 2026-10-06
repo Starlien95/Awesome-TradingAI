@@ -31,7 +31,7 @@ classifiers = [
 dependencies = [
   "numpy>=1.24,<3",
   "pandas>=2.0,<3",
-  "platformdirs>=4,<5",
+  "platformdirs>=4.11.2,<5",
   "pydantic>=2.8,<3",
   "PyYAML>=6,<7",
 ]
