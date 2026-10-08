@@ -8,7 +8,7 @@
 
 
 
-[**Paper Trading**](https://awesome-tradingai.streamlit.app/) ·
+[**Paper & Live Trading**](https://awesome-tradingai.streamlit.app/) ·
 [**Documentation**](docs/index.md) ·
 [**CLI Reference**](docs/reference/cli.md) ·
 [**简体中文**](README.zh-CN.md)
