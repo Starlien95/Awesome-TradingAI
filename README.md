@@ -23,7 +23,7 @@
 </div>
 
 
-**Can AI Make Money in Crypto?** is an open-source benchmark and codebase for evaluating AI trading methods in cryptocurrency markets, including machine learning, reinforcement learning, LLM-based methods, and trading agents. It provides unified interfaces for historical backtesting, real-time paper trading on cryptocurrency exchanges, and live trading, while continuously publishing backtest and paper-trading results. Real-money trading results will be added in future evaluations.
+**Can AI Make Money in Crypto?** is an open-source benchmark and codebase for evaluating AI trading methods in cryptocurrency markets, including machine learning, reinforcement learning, LLM-based methods, and trading agents. It provides unified interfaces for historical backtesting, real-time paper trading on cryptocurrency exchanges, and live trading, while continuously publishing backtest, paper-trading, and real-money live-trading results.
 
 ## 📈 Public Exchange-Paper Results
 
@@ -44,11 +44,19 @@ The current public evaluation covers 10 cryptocurrencies in total: ADA, BTC, DOG
 | MacroHFT | ETH |
 | FinMem | BTC |
 
+## 📈 Public Live-Trading Results
+
+[Open the public results dashboard](https://awesome-tradingai.streamlit.app/) and select **Live Trading** to view real-money results for **LSTM, XGBoost, TRA, and Qwen**. The page shows normalized return curves, BTC Buy & Hold comparisons, drawdowns, and data freshness across these four public live runs.
+
+Each live run starts at its first complete public observation. Signals and trading activity are published with a delay of at least 24 hours; exact account balances, positions, and order identifiers remain private.
+
+![Awesome TradingAI public live-trading overview](docs/assets/public-showcase-live-overview.jpg)
+
 ## 🔥 News
 
 - **[Aug. 8, 2026]** Public OKX paper-trading dashboard released.
 - **[Aug. 6, 2026]** Full benchmark codebase released.
-- **[Coming Soon]** Real-money live trading evaluation.
+- **[Live Results]** Public real-money results are available for LSTM, XGBoost, TRA, and Qwen.
 
 ## 🎯 Why This Benchmark?
 

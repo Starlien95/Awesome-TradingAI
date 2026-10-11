@@ -9,7 +9,7 @@
 
 
 
-[**模拟交易**](https://awesome-tradingai.streamlit.app/) ·
+[**模拟与实盘交易**](https://awesome-tradingai.streamlit.app/) ·
 [**文档**](docs/index.md) ·
 [**CLI 参考**](docs/reference/cli.md) ·
 [**English**](README.md)
@@ -23,7 +23,7 @@
 
 </div>
 
-**Can AI Make Money in Crypto?（AI 能在加密货币市场赚钱吗？）** 是一个开源评测基准与代码库，用于评估加密货币市场中的 AI 交易方法，包括机器学习、强化学习、基于大语言模型（LLM）的方法以及交易智能体。项目为历史回测、加密货币交易所实时模拟交易和实盘交易提供统一接口，并持续发布回测与模拟交易结果。未来的评测还将加入真实资金交易结果。
+**Can AI Make Money in Crypto?（AI 能在加密货币市场赚钱吗？）** 是一个开源评测基准与代码库，用于评估加密货币市场中的 AI 交易方法，包括机器学习、强化学习、基于大语言模型（LLM）的方法以及交易智能体。项目为历史回测、加密货币交易所实时模拟交易和实盘交易提供统一接口，并持续发布回测、模拟交易和真实资金实盘交易结果。
 
 ## 📈 公开的交易所模拟交易结果
 
@@ -46,11 +46,19 @@
 | MacroHFT | ETH |
 | FinMem | BTC |
 
+## 📈 公开的实盘交易结果
+
+[打开公开结果面板](https://awesome-tradingai.streamlit.app/)，选择 **Live Trading**，可查看 **LSTM、XGBoost、TRA 和 Qwen** 四个实盘运行的归一化收益曲线、与 BTC 买入并持有策略的对比、回撤和数据新鲜度。
+
+各实盘运行从首个完整公共观测点开始展示。信号和交易活动至少延迟 24 小时发布，精确账户余额、持仓和订单标识保持私有。
+
+![Awesome TradingAI 公开实盘交易总览](docs/assets/public-showcase-live-overview.jpg)
+
 ## 🔥 最新动态
 
 - **[2026 年 8 月 8 日]** OKX 公开模拟交易面板上线。
 - **[2026 年 8 月 6 日]** 完整评测基准代码库发布。
-- **[即将推出]** 真实资金实盘交易评测。
+- **[实盘结果]** LSTM、XGBoost、TRA 和 Qwen 的真实资金交易结果已公开展示。
 
 ## 🎯 为什么需要这个评测基准？
 
