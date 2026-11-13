@@ -29,11 +29,11 @@
 
 [Open the public results dashboard](https://awesome-tradingai.streamlit.app/) to explore normalized return curves, comparisons with BTC Buy & Hold, drawdowns, trading signals, execution summaries, method details, and data-quality status across 15 public runs covering 15 distinct methods.
 
-The public results currently use the OKX Demo Trading environment, corresponding to the library's `exchange-paper` mode. This mode is distinct from both local `local-paper` execution and real-money `live` trading. The public display window begins at `2026-06-01 00:00 UTC`. Each method is normalized at its first real observation on or after that boundary. The multi-agent run begins at its first real observation on June 4, so the earlier interval remains empty with no synthetic backfilling.
+The public results currently use the OKX Demo Trading environment, corresponding to the library's `exchange-paper` mode. This mode is distinct from both local `local-paper` execution and real-money `live` trading. Paper-trading cumulative return curves and BTC Buy & Hold share a display baseline of `2026-06-04 16:00 UTC`, with returns reset to 0 at that baseline. Jensen alpha uses a separate fixed daily-valuation anchor.
 
 ![Awesome TradingAI public showcase overview](docs/assets/public-showcase-overview.jpg)
 
-The overview shows the full public method set, the five methods with the highest final Alpha, an Alpha-sorted Leaderboard, and the union of public crypto assets. For each method, both the method return and BTC reference return are reset to 0 at that method's first real observation before Alpha is calculated. The Top 5 chart displays Alpha only. Open Strategy Detail in the site to inspect the exact asset symbols, timeframe, execution mode, methodology, and data window for each method.
+The overview shows cumulative return curves alongside BTC Buy & Hold, annualized Jensen alpha curves for all public methods, a Leaderboard grouped by comparison cohort and sorted by annualized Jensen alpha, and the union of public crypto assets. Jensen alpha uses paired daily method and BTC returns with a zero risk-free rate and equals 365 times the daily regression intercept. Each cohort uses its full valid daily history from its fixed anchor; missing required daily valuations leave Jensen unavailable. Open Strategy Detail in the site to inspect the exact asset symbols, timeframe, execution mode, methodology, and data window for each method.
 
 The current public evaluation covers 10 cryptocurrencies in total: ADA, BTC, DOGE, ETH, HBAR, LINK, LTC, OKB, TRX, and XRP. Asset scope differs by method:
 
